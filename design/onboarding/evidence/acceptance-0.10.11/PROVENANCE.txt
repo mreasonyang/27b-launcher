@@ -1,0 +1,16 @@
+27B Launcher 0.10.11 (40) acceptance evidence
+Run date: 2026-09-30
+Source: dist/onboarding-acceptance-2026-09-30/
+These files were copied unchanged during documentation maintenance.
+Tested source tree: ff8a9e1c66fee7ff4a242924678814c28e0e92bd
+Original commit: b6cde83; identical tree after squash: d719802
+
+Exact final line from swift-test.log:
+✔ Test run with 263 tests in 26 suites passed after 61.286 seconds.
+
+SHA-256:
+d2db8cc7e9e548fd354400af77c18a85312e42bb6dd1102a947204bb06adf230  fresh-chat-passed.png
+aac409e24a1414750b6d7751f2ad1fce270224f9608208958b06594a74e757d6  existing-chat-passed.png
+d33bfa5c8a1c5e2ee2dbff43484e21a1ec62e75d49887e4743d5e232a5c22e31  background-download-reopened.png
+a07d10875bb337c31263a23a1db21b5b1c1deefb7490cb8eb4bea8571bed0b1e  installed-release-ready.png
+f1bf9325d34b2e0adbabc2c34fe423a8b7a37ecd8f8435f9e4fe7eefc7f350bf  swift-test.log (full log retained locally in source directory)

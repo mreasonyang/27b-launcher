@@ -1,0 +1,13 @@
+Another instance of SwiftPM (PID: 44209) is already running using '/tmp/launcher27b-onboarding-build', waiting until that process has finished execution...Building for debugging...
+[2 / 5] Launcher27BTests-product
+[4 / 7] Launcher27BTests-product
+[9 / 11] Launcher27BTests-product
+Build complete! (3.73 sec)
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite OnboardingTests started.
+◇ Test onboardingWarningsAndFailuresFitWithoutScrolling() started.
+✔ Test onboardingWarningsAndFailuresFitWithoutScrolling() passed after 1.999 seconds.
+✔ Suite OnboardingTests passed after 1.999 seconds.
+✔ Test run with 1 test in 1 suite passed after 1.999 seconds.

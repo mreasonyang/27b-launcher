@@ -1,0 +1,168 @@
+name: Release
+
+# Builds, signs, notarizes and publishes a release.
+#
+# Triggered by pushing a v* tag. If the required signing/notary secrets are
+# absent, the release fails. Development builds are produced locally.
+#
+# Repository secrets (Settings -> Secrets and variables -> Actions):
+#   MACOS_CERTIFICATE_P12_BASE64   base64 of a "Developer ID Application" .p12
+#   MACOS_CERTIFICATE_PASSWORD     password for that .p12
+#   one of:
+#     AC_API_KEY_P8_BASE64 + AC_API_KEY_ID + AC_API_ISSUER_ID   (App Store Connect API key)
+#     AC_APPLE_ID + AC_TEAM_ID + AC_PASSWORD                    (Apple ID + app-specific password)
+# The signing identity is detected from the imported certificate; no secret needed.
+#
+# Generate the base64 values, e.g.:  base64 -i cert.p12 | pbcopy
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    outputs:
+      can_sign: ${{ steps.check.outputs.can_sign }}
+    steps:
+      - id: check
+        env:
+          CERT: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+          CERT_PW: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+          API_KEY: ${{ secrets.AC_API_KEY_P8_BASE64 }}
+          API_KEY_ID: ${{ secrets.AC_API_KEY_ID }}
+          APPLE_ID: ${{ secrets.AC_APPLE_ID }}
+          TEAM_ID: ${{ secrets.AC_TEAM_ID }}
+          APP_PW: ${{ secrets.AC_PASSWORD }}
+        run: |
+          missing=""
+          [ -n "$CERT" ] || missing="$missing MACOS_CERTIFICATE_P12_BASE64"
+          [ -n "$CERT_PW" ] || missing="$missing MACOS_CERTIFICATE_PASSWORD"
+          if [ -n "$API_KEY" ] && [ -n "$API_KEY_ID" ]; then
+            :
+          elif [ -n "$APPLE_ID" ] && [ -n "$TEAM_ID" ] && [ -n "$APP_PW" ]; then
+            :
+          else
+            missing="$missing NOTARY_CREDENTIALS"
+          fi
+          if [ -z "$missing" ]; then
+            echo "can_sign=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::error::Missing release credentials:$missing"
+            exit 1
+          fi
+
+  signed:
+    needs: preflight
+    if: needs.preflight.outputs.can_sign == 'true'
+    runs-on: macos-26
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Tags are needed for the version/build-number monotonicity check.
+          fetch-depth: 0
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Import signing certificate into a temporary keychain
+        env:
+          CERT_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
+          CERT_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+        run: |
+          KEYCHAIN="$RUNNER_TEMP/build.keychain-db"
+          KEYCHAIN_PASSWORD="$(openssl rand -hex 24)"
+          echo "KEYCHAIN=$KEYCHAIN" >> "$GITHUB_ENV"
+          echo "KEYCHAIN_PASSWORD=$KEYCHAIN_PASSWORD" >> "$GITHUB_ENV"
+
+          security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 3600 "$KEYCHAIN"
+          security unlock-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
+
+          echo "$CERT_P12_BASE64" | openssl base64 -d -A -out "$RUNNER_TEMP/cert.p12"
+          security import "$RUNNER_TEMP/cert.p12" -k "$KEYCHAIN" \
+            -P "$CERT_PASSWORD" -T /usr/bin/codesign
+          security set-key-partition-list -S apple-tool:,apple:,codesign: \
+            -s -k "$KEYCHAIN_PASSWORD" "$KEYCHAIN" >/dev/null
+
+          # Make the temporary keychain searchable without dropping the login one.
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+          rm -f "$RUNNER_TEMP/cert.p12"
+
+          IDENTITY="$(security find-identity -v -p codesigning "$KEYCHAIN" \
+            | sed -n 's/.*"\(Developer ID Application: .*\)"/\1/p' | head -n 1)"
+          if [ -z "$IDENTITY" ]; then
+            echo "::error title=No Developer ID Application certificate::The imported .p12 has no usable 'Developer ID Application' identity."
+            exit 1
+          fi
+          echo "SIGNING_IDENTITY=$IDENTITY" >> "$GITHUB_ENV"
+          echo "Using signing identity: $IDENTITY"
+
+      - name: Prepare notary credentials
+        env:
+          API_KEY_P8_BASE64: ${{ secrets.AC_API_KEY_P8_BASE64 }}
+          AC_API_KEY_ID: ${{ secrets.AC_API_KEY_ID }}
+          AC_API_ISSUER_ID: ${{ secrets.AC_API_ISSUER_ID }}
+          AC_APPLE_ID: ${{ secrets.AC_APPLE_ID }}
+          AC_TEAM_ID: ${{ secrets.AC_TEAM_ID }}
+          AC_PASSWORD: ${{ secrets.AC_PASSWORD }}
+        run: |
+          if [ -n "$API_KEY_P8_BASE64" ]; then
+            mkdir -p "$RUNNER_TEMP/notary"
+            echo "$API_KEY_P8_BASE64" | openssl base64 -d -A -out "$RUNNER_TEMP/notary/AuthKey.p8"
+            {
+              echo "AC_API_KEY_PATH=$RUNNER_TEMP/notary/AuthKey.p8"
+              echo "AC_API_KEY_ID=$AC_API_KEY_ID"
+              echo "AC_API_ISSUER_ID=$AC_API_ISSUER_ID"
+            } >> "$GITHUB_ENV"
+          else
+            {
+              echo "AC_APPLE_ID=$AC_APPLE_ID"
+              echo "AC_TEAM_ID=$AC_TEAM_ID"
+              echo "AC_PASSWORD=$AC_PASSWORD"
+            } >> "$GITHUB_ENV"
+          fi
+
+      - name: Sign, notarize and package
+        run: |
+          NOTARY_TIMEOUT="${NOTARY_TIMEOUT:-60m}" REQUIRE_SIGNING=1 REQUIRE_VERSION_BUMP=1 \
+            ./scripts/sign-and-notarize.sh
+
+      - name: Verify the notarized app
+        run: |
+          APP="dist/27B Launcher.app"
+          xcrun stapler validate "$APP"
+          spctl --assess --type execute -vv "$APP"
+          shasum -a 256 dist/*.dmg dist/*.zip
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: signed-artifacts
+          if-no-files-found: error
+          retention-days: 30
+          path: |
+            dist/*.dmg
+            dist/*.zip
+            dist/*.sha256
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          gh release view "$TAG" >/dev/null 2>&1 \
+            || gh release create "$TAG" --title "27B Launcher $TAG" --generate-notes
+          gh release upload "$TAG" dist/*.dmg dist/*.zip dist/*.sha256 --clobber

@@ -1,0 +1,417 @@
+"地址" = "Address";
+"上下文" = "Context";
+
+"Token 用量" = "Token Usage";
+"合计" = "Total";
+"生成速度" = "Generation Speed";
+"活动请求" = "Active Requests";
+"上下文峰值" = "Peak Context";
+
+"调整模型的拒答倾向" = "Tune the model's refusal behavior";
+"启用 OrcaBonsai" = "Enable OrcaBonsai";
+"拒答减弱程度" = "Refusal reduction";
+"减少拒答不等于输出安全或正确" = "Reducing refusals does not make outputs safe or correct";
+
+"登录时自动运行" = "Launch at login";
+"监听范围" = "Listen On";
+"仅本机" = "This Mac";
+"所有网络接口" = "All Interfaces";
+"127.0.0.1 · 只接受本机连接" = "127.0.0.1 · Accept connections only from this Mac";
+"0.0.0.0 · 接受所有网络接口的连接" = "0.0.0.0 · Accept connections on every network interface";
+"登录这台 Mac 后自动加载模型" = "Automatically load the model after signing in to this Mac";
+"请在系统设置 > 登录项中允许 27B Launcher" = "Allow 27B Launcher in System Settings > Login Items";
+"日志" = "Logs";
+"查看日志" = "View Logs";
+
+"显示与语言" = "Display & Language";
+"语言" = "Language";
+"立即切换应用界面语言" = "Change the app language immediately";
+"外观" = "Appearance";
+"无障碍模式" = "Accessibility Mode";
+"提高对比度，减少透明和动态效果" = "Increase contrast and reduce transparency and motion";
+"跟随系统" = "System";
+"浅色" = "Light";
+"深色" = "Dark";
+
+"打开聊天" = "Open Chat";
+"启动模型" = "Start Model";
+"重启" = "Restart";
+"停止" = "Stop";
+"在系统默认浏览器中打开本地聊天页面" = "Open the local chat page in the system default browser";
+"加载 Bonsai 2 模型并启动本地服务" = "Load the Bonsai 2 model and start the local service";
+"重新加载本地模型服务" = "Reload the local model service";
+"停止服务并释放模型内存" = "Stop the service and release model memory";
+
+"正在检查" = "Checking";
+"已停止" = "Stopped";
+"正在启动" = "Starting";
+"正在停止" = "Stopping";
+"正在重启" = "Restarting";
+"运行中" = "Running";
+"由其他方式运行" = "Running externally";
+"正在读取本机服务状态" = "Reading the local service status";
+"模型未占用内存" = "The model is not using memory";
+"首次加载通常需要数秒" = "The first load usually takes a few seconds";
+"正在卸载模型" = "Unloading the model";
+"正在重新加载模型" = "Reloading the model";
+"Bonsai 2 已可用" = "Bonsai 2 is ready";
+"端口可用，但服务不是由本启动器管理" = "The port is available, but this launcher does not manage the service";
+
+"0.5× · 温和" = "0.5× · Gentle";
+"0.7× · 平衡" = "0.7× · Balanced";
+"0.9× · 强力" = "0.9× · Strong";
+"1.0× · 完整效果" = "1.0× · Full effect";
+"2.0× · 默认" = "2.0× · Default";
+"轻微减少拒答，尽量保持原始回答风格。" = "Slightly reduces refusals while preserving the original response style.";
+"兼顾减少拒答和回答稳定性，适合日常使用。" = "Balances fewer refusals with response stability for everyday use.";
+"明显减少拒答，输出变化会更明显。" = "Noticeably reduces refusals, with more visible output changes.";
+"完整应用模块的标准效果。" = "Applies the module's full standard effect.";
+"默认以 2.0× 强度应用模块，可根据回答效果调整。" = "Applies the module at 2.0× by default. Adjust the strength to suit the responses.";
+
+"正在检查这台 Mac" = "Checking this Mac";
+"正在检查本地模型与运行环境…" = "Checking the local model and runtime…";
+"正在检查本地模型与运行环境" = "Checking the local model and runtime";
+"预计下载" = "Estimated download";
+"正在准备下载…" = "Preparing the download…";
+"发生未知错误" = "An unknown error occurred";
+"重试" = "Retry";
+"重新检测" = "Check Again";
+"好" = "OK";
+
+"Prism 推理运行时" = "Prism inference runtime";
+"Bonsai 2 · 27B 模型" = "Bonsai 2 · 27B model";
+"视觉投影文件" = "Vision projector";
+"OrcaBonsai 模块" = "OrcaBonsai module";
+"运行低比特模型所需的本地 llama.cpp 组件" = "Local llama.cpp components required for low-bit inference";
+"用于本地推理的 PQ2_0 模型权重" = "PQ2_0 model weights for local inference";
+"让模型能够理解图片和截图" = "Enables the model to understand images and screenshots";
+"可调节拒答倾向的本地 LoRA 文件" = "Local LoRA file for tuning refusal behavior";
+"正在下载" = "Downloading";
+"正在校验" = "Verifying";
+"正在配置" = "Configuring";
+
+"下载结束，但没有生成临时文件" = "The download finished without producing a temporary file";
+"下载服务器返回了无法识别的响应" = "The download server returned an unrecognized response";
+"下载服务器返回 HTTP %lld" = "The download server returned HTTP %lld";
+"磁盘空间不足：至少需要 %@，当前可用 %@" = "Not enough disk space: %@ required, %@ available";
+"Prism 运行时压缩包缺少 llama-server 或必要动态库" = "The Prism runtime archive is missing llama-server or required dynamic libraries";
+"配置命令失败：%@（状态码 %lld）" = "Setup command failed: %@ (status %lld)";
+"无法停止模型进程（errno %lld）" = "Unable to stop the model process (errno %lld)";
+"模型进程未能在强制停止后退出" = "The model process did not exit after being force-stopped";
+"无法创建日志文件：%@" = "Unable to create the log file: %@";
+
+/* Native workspace redesign */
+"设置" = "Settings";
+"模型" = "Model";
+"已复制" = "Copied";
+"复制地址" = "Copy Address";
+"API 端点" = "API Endpoint";
+"本地服务端点" = "Local Endpoint";
+"局域网共享" = "LAN Shared";
+"待启动" = "Standby";
+"占用: --%" = "Used: --%";
+"复用: --" = "Reused: --";
+"输入: %lld%%" = "Input: %lld%%";
+"输出: %lld%%" = "Output: %lld%%";
+"输入: --%" = "Input: --%";
+"输出: --%" = "Output: --%";
+"占用: %lld%%" = "Used: %lld%%";
+"复用: %lld" = "Reused: %lld";
+"复制" = "Copy";
+"原始对齐模式" = "Original alignment mode";
+"模块已关闭，Bonsai 2 保留官方默认的安全审查与拒答策略。" = "The module is off. Bonsai 2 keeps its default safety checks and refusal behavior.";
+"外部服务" = "External Service";
+"外部服务 · 监听范围未知" = "External service · Listening scope unknown";
+"继续下载" = "Resume Download";
+"已保留上次的下载进度，将从中断处继续。" = "Your previous download progress was saved and will resume where it stopped.";
+"网络连接中断，已保存可续传进度；恢复网络后继续下载。" = "The network connection was interrupted. Your resumable progress was saved; reconnect and resume the download.";
+"下载等待超时，已保存可续传进度；请检查网络后继续下载。" = "The download timed out. Your resumable progress was saved; check the network and resume the download.";
+"已复用已安装组件" = "Reusing installed components:";
+"、" = ", ";
+"网络已中断，正在等待恢复并自动续传…" = "Connection lost. Waiting to resume automatically…";
+"网络中断，等待自动重试" = "Connection lost — retrying automatically";
+"预计剩余" = "About";
+"约 %lld 秒" = "%lld sec remaining";
+"约 %lld 分钟" = "%lld min remaining";
+"约 %lld 小时 %lld 分钟" = "%lld hr %lld min remaining";
+"暂停下载" = "Pause Download";
+"正在暂停并保存下载进度…" = "Pausing and saving download progress…";
+"模型存储" = "Model Storage";
+"实际位置" = "Actual location";
+"占用空间" = "Space used";
+"位置不可用" = "Location unavailable";
+"在 Finder 中显示" = "Show in Finder";
+"更改位置…" = "Change Location…";
+"迁移时会暂停模型服务；校验成功后自动恢复。目标位置会创建 Bonsai2 Models 文件夹。" = "Migration pauses the model service and restores it after verification. A Bonsai2 Models folder will be created at the destination.";
+"选择新的模型存储位置" = "Choose a New Model Storage Location";
+"将在所选文件夹内创建 Bonsai2 Models 文件夹" = "A Bonsai2 Models folder will be created inside the selected folder.";
+"选择位置" = "Choose Location";
+"模型存储位置当前不可用" = "The model storage location is unavailable.";
+"所选位置已存在 Bonsai2 Models 文件夹；请选择其他位置" = "A Bonsai2 Models folder already exists there. Choose another location.";
+"新位置不能位于当前模型文件夹内" = "The new location cannot be inside the current model folder.";
+"目标磁盘空间不足：需要 %@，可用 %@" = "Not enough space at the destination: %@ required, %@ available.";
+"迁移后的模型校验失败，已保留原位置" = "The migrated models failed verification. The original location was preserved.";
+"请先停止外部模型服务并确认安装完整" = "Stop the external model service and confirm the installation is complete first.";
+"已配置的模型位置不可用。请恢复该文件夹后重新检测。" = "The configured model location is unavailable. Restore that folder, then check again.";
+"模型服务未能停止，未开始迁移。" = "The model service could not be stopped, so migration did not start.";
+"迁移已取消，原模型位置未改变" = "Migration cancelled. The original model location was not changed.";
+"正在复制模型" = "Copying models";
+"正在校验模型" = "Verifying models";
+"正在切换模型位置" = "Switching model location";
+"取消迁移" = "Cancel Migration";
+"正在安全停止迁移…" = "Safely stopping migration…";
+"模型迁移失败：%@" = "Model migration failed: %@";
+"模型进程已启动，但未能通过健康检查；已停止进程，请查看日志" = "The model process started but did not become healthy. It was stopped; check the logs for details.";
+"停止模型后端口仍有服务响应；为避免端口冲突，未执行重启" = "The service port still responds after stopping the model. Restart was cancelled to avoid a port conflict.";
+"无法在 Finder 中打开日志目录" = "The log folder could not be opened in Finder.";
+"无法在 Finder 中打开模型目录" = "The model folder could not be opened in Finder.";
+"OrcaBonsai 适配器不存在：%@。请重新安装缺失组件。" = "The OrcaBonsai adapter is missing: %@. Reinstall the missing component.";
+"WebUI 配置文件不存在：%@。请重新安装 27B Launcher。" = "The WebUI configuration is missing: %@. Reinstall 27B Launcher.";
+"下载已暂停，但无法保存续传进度；请检查磁盘空间和文件权限。" = "The download was paused, but its resume data could not be saved. Check disk space and file permissions.";
+
+/* Download, installer, storage, hardware, and system errors */
+"下载未完成，已保留可续传进度；将继续重试。" = "The download did not finish; resumable progress was kept and will be retried.";
+"磁盘空间不足，下载已暂停；已保留已下载的部分，清理磁盘后可继续。" = "Not enough disk space, so the download is paused. The part already downloaded was kept; free up space to continue.";
+"无法写入下载文件；请检查磁盘空间和文件夹权限。" = "The download file could not be written. Check disk space and folder permissions.";
+"下载服务器返回了网页而不是模型文件，可能被网络登录页面拦截；请连接正常网络后重试。" = "The download server returned a web page instead of the model file, possibly intercepted by a network login page. Connect to a normal network and retry.";
+"下载内容大小与预期不符（预期 %@，实际 %@）；请重试下载。" = "The download size did not match the expected size (expected %@, got %@). Retry the download.";
+"%@ 校验失败，已保留已下载的文件；可重新校验或重试下载" = "%@ failed verification; the downloaded file was kept. Re-verify or retry the download.";
+"磁盘空间不足，安装已停止；已保留已下载的文件，清理磁盘后可继续。" = "Not enough disk space, so installation stopped. The downloaded files were kept; free up space to continue.";
+"无法写入目标文件夹；请检查文件夹权限后重试。" = "The destination folder could not be written to. Check folder permissions and retry.";
+"%@ 的下载文件已丢失；请重新下载。" = "The downloaded file for %@ is missing. Download it again.";
+"安装文件时发生错误；请重试，已下载的文件会保留。" = "An error occurred while installing files. Retry; the downloaded files will be kept.";
+"正在复制到目标位置" = "Copying to destination";
+"所选位置为只读，无法写入模型文件" = "The selected location is read-only, so model files cannot be written.";
+"所选位置位于网络卷，网络中断会导致迁移失败；请选择本地磁盘" = "The selected location is on a network volume; a network interruption would fail the migration. Choose a local disk.";
+"所选位置的 %@ 文件系统无法存放 %@ 的单个文件；请选择 APFS 或 Mac OS 扩展格式的本地磁盘" = "The %@ file system at the selected location cannot hold a single %@ file. Choose a local disk formatted as APFS or Mac OS Extended.";
+"所选位置的 Bonsai2 Models 文件夹内容不完整，请先删除该文件夹或选择其他位置" = "The Bonsai2 Models folder at the selected location is incomplete. Delete that folder first or choose another location.";
+"模型已迁移；旧位置 %@ 未能删除，仍占用 %@" = "Models migrated, but the old location %@ could not be removed and still occupies %@.";
+"这台 Mac 的处理器（%@）不受支持；Bonsai 2 需要 Apple 芯片（arm64）。" = "This Mac's processor (%@) is not supported; Bonsai 2 requires Apple silicon (arm64).";
+"内存不足：运行 27B 模型至少需要 %@，这台 Mac 只有 %@。" = "Not enough memory: running the 27B model needs at least %@, but this Mac has only %@.";
+"内存偏低：建议至少 %@（当前 %@），长上下文时可能变慢。" = "Low memory: at least %@ is recommended (currently %@). Long contexts may be slower.";
+"无法生成 API 密钥（OSStatus %lld）" = "Unable to generate an API key (OSStatus %lld)";
+"无法访问钥匙串以保存 API 密钥（OSStatus %lld）" = "Unable to access the keychain to save the API key (OSStatus %lld)";
+"无法创建启动器锁文件：%@" = "Unable to create the launcher lock file: %@";
+"无法注册开机启动：请将“27B Launcher”拖入“应用程序”文件夹，重新打开后再试。" = "Unable to register launch at login: drag “27B Launcher” into the Applications folder, reopen it, and try again.";
+"磁盘空间不足，操作未完成；请清理磁盘后重试。" = "Not enough disk space; the operation did not finish. Free up space and retry.";
+"没有访问该位置的权限；请检查文件权限后重试。" = "You do not have permission to access that location. Check file permissions and retry.";
+"找不到所需的文件或文件夹；它可能已被移动或删除。" = "The required file or folder could not be found. It may have been moved or deleted.";
+"目标位置为只读，无法写入。" = "The destination is read-only; nothing can be written.";
+"目标位置已存在同名文件。" = "A file with the same name already exists at the destination.";
+"系统调用失败（errno %lld），操作未完成。" = "A system call failed (errno %lld); the operation did not finish.";
+"这台 Mac 不满足运行 Bonsai 2 的最低要求。" = "This Mac does not meet the minimum requirements to run Bonsai 2.";
+"操作未完成：%@" = "The operation did not finish: %@";
+
+/* View layer: unmanaged service, LAN sharing, hardware preflight, verification */
+"服务状态：%@" = "Service status: %@";
+"另一个启动器实例正在运行" = "Another launcher instance is running";
+"进程 PID %lld 已经在管理模型服务。为避免两个启动器争用同一个服务，此窗口中的控制已停用。" = "Process PID %lld is already managing the model service. To prevent two launchers from fighting over the same service, the controls in this window are disabled.";
+"模型服务正在运行，但不受本启动器管理" = "The model service is running but is not managed by this launcher";
+"端口 8080 上有一个健康的模型服务（PID %lld），它不是由本启动器启动的，因此本启动器无法接管或控制它；模型仍占用内存。你只能停止该进程。" = "A healthy model service (PID %lld) is running on port 8080. This launcher did not start it, so this launcher cannot adopt or control it; the model still occupies memory. All you can do is stop the process.";
+"端口 8080 上有一个由本启动器启动、但当前未受本启动器管理的模型服务（PID %lld）；模型仍占用内存。你可以接管它，或停止该进程。" = "A model service started by this launcher (PID %lld) is running on port 8080 but is not currently managed by it; the model still occupies memory. You can adopt it or stop the process.";
+"接管服务" = "Adopt Service";
+"停止该进程" = "Stop Process";
+"停止这个不受管理的服务？" = "Stop this unmanaged service?";
+"停止并释放内存与端口" = "Stop and Free Memory and Port";
+"这会强制结束该模型进程，模型内存和端口 8080 会立即释放；未保存的请求会被中断。" = "This force-quits the model process. Model memory and port 8080 are freed immediately, and unsaved requests are interrupted.";
+"取消" = "Cancel";
+"接管由本启动器启动、但当前未受本启动器管理的模型服务" = "Adopt a model service started by this launcher that it is not currently managing";
+/* Supervision notices. The app has no pluralization infrastructure, so the
+   English wording must read correctly for every count (never "1 times"). */
+"正在处理，请稍候" = "Working — please wait";
+"启动已失败 %lld 次，正在自动重试（约 %lld 秒后）。" = "Startup failed %lld times; retrying automatically in about %lld seconds.";
+"已连续失败 %lld 次，自动重启已暂停；请点击“启动模型”手动重试，并查看日志排查原因。" = "Repeated start failures have paused automatic restart (%lld so far). Click “Start Model” to retry manually and check the logs for the cause.";
+"模型在 %lld 分钟内崩溃 %lld 次，自动重启已暂停；请点击“启动模型”手动重试，并查看日志排查原因。" = "The model crashed %lld times within %lld minutes, so automatic restart is paused. Click “Start Model” to retry manually and check the logs for the cause.";
+"已连续失败 %lld 次，期间还崩溃 %lld 次；自动重启已暂停，请点击“启动模型”手动重试，并查看日志排查原因。" = "Automatic restart is paused after %lld start failures in a row, with %lld crashes along the way. Click “Start Model” to retry manually and check the logs for the cause.";
+"切换到“所有网络接口”前会要求确认" = "You will be asked to confirm before switching to “All Interfaces”";
+"在所有网络接口上共享模型服务？" = "Share the model service on all network interfaces?";
+"确认开启局域网共享" = "Turn On LAN Sharing";
+"请在“系统设置 > 网络 > 防火墙”中开启防火墙，并仅在可信网络中使用。" = "Enable the firewall in System Settings > Network > Firewall and use it only on trusted networks.";
+"局域网模式下内置聊天页面已停用；其他设备请将 127.0.0.1 换成这台 Mac 的 IP 地址，再使用上面的 API 地址连接。" = "The built-in chat page is disabled in LAN mode. On other devices, replace 127.0.0.1 with this Mac's IP address, then connect using the API address above.";
+"局域网模式下内置聊天页面已停用；复制 API 地址供其他设备或客户端使用" = "The built-in chat page is disabled in LAN mode; copy the API address for other devices or clients";
+"运行中的服务参数未知，无法确认它是否提供内置聊天页面。接管并重启后可应用当前设置。" = "The running service has unknown options, so web chat availability cannot be confirmed. Take over and restart to apply the current settings.";
+"本启动器无法确认这个服务是否提供内置聊天页面；复制 API 地址供其他设备或客户端使用" = "This launcher cannot tell whether this service serves the built-in chat page; copy the API address for other devices or clients";
+"运行中的服务仍在按上一次的监听范围运行；新的监听范围将在重启成功后生效。" = "The running service still uses its previous listening scope; the new scope takes effect once the restart succeeds.";
+"复制 API 地址" = "Copy API Address";
+"生成速度：%@ tok/s；%@" = "Generation speed: %@ tok/s; %@";
+"Token 用量：合计 %@" = "Token usage: %@ total";
+"上下文峰值：%@ / 32K" = "Peak context: %@ / 32K";
+"校验文件" = "Verify Files";
+"逐个计算已安装文件的校验和，确认模型文件没有损坏" = "Compute checksums for every installed file to confirm the model files are intact";
+"正在校验 %lld/%lld…" = "Verifying %lld/%lld…";
+"正在从保留的下载中恢复…" = "Recovering from the kept download…";
+"从保留的下载中恢复" = "Recover from Kept Download";
+"重新校验上次保留的下载文件；校验通过后可直接安装，无需重新下载" = "Re-verify the download files kept from last time; if they pass, you can install without downloading again";
+"没有可校验的模型文件；请先完成安装。" = "There are no model files to verify. Finish the installation first.";
+"已从保留的下载中恢复 %lld 个文件；上面的校验结果已更新。" = "Recovered %lld files from the kept download; the verification results above were updated.";
+"校验完成：%lld 个文件全部正常。" = "Verification complete: all %lld files are intact.";
+"校验完成：%@ 校验未通过，建议重新下载这些组件。" = "Verification complete: %@ failed verification. We recommend downloading these components again.";
+"正常" = "OK";
+"文件缺失" = "File Missing";
+"大小不符" = "Size Mismatch";
+"校验和不符" = "Checksum Mismatch";
+"结构校验通过" = "Structure Verified";
+
+/* Model migration failure payloads, keyed for localization */
+"无法在目标位置创建模型文件" = "Unable to create the model file at the destination.";
+
+/* Generic migration system error */
+"模型迁移过程中发生系统错误；请查看日志了解详情。" = "A system error occurred during model migration. Check the logs for details.";
+
+"API 访问" = "API access";
+
+"复制 API 密钥" = "Copy API key";
+
+"轮换密钥并重启" = "Rotate key and restart";
+
+"修复损坏的组件" = "Repair damaged components";
+
+"运行参数未知" = "Launch options unknown";
+
+"本机 API 端点" = "Local API endpoint";
+
+"局域网 API 使用钥匙串中的密钥。HTTP 不加密请求；仅在可信网络使用。" = "The LAN API uses a key stored in Keychain. HTTP does not encrypt requests; use trusted networks only.";
+
+"复制的密钥在 60 秒后清除；轮换后需要更新所有客户端。局域网模式不采集 Token 统计。" = "The copied key clears after 60 seconds. Update all clients after rotation. Token statistics are unavailable in LAN mode.";
+
+"服务将监听所有网络接口，并要求 API 密钥。网页聊天将关闭。HTTP 不加密密钥或对话内容，请仅在可信网络使用；可在设置中复制和轮换密钥。" = "The service will listen on all interfaces and require an API key. Web chat will be disabled. HTTP does not encrypt keys or conversations; use trusted networks only. Copy or rotate the key in Settings.";
+
+"局域网 API 已启用密钥认证。HTTP 不加密传输；请仅在可信网络使用。密钥管理位于设置。" = "LAN API key authentication is enabled. HTTP traffic is unencrypted; use trusted networks only. Manage the key in Settings.";
+
+"模型已迁移，已更新存储位置" = "Models moved; storage location updated";
+"保存的设置 %@ 无效，请在设置中重置无效项。" = "Saved setting %@ is invalid. Reset invalid settings in Settings.";
+"重置无效设置" = "Reset Invalid Settings";
+"统计不可用" = "Statistics unavailable";
+"统计不可用：服务未返回完整有效的监控数据。" = "Statistics unavailable: the service did not return complete, valid metrics.";
+
+"Bonsai 2 已在这台 Mac 上运行。" = "Bonsai 2 is running on this Mac.";
+
+"下载 Bonsai 2 后，即可在本机聊天与辅助写作。默认设置即可开始。" = "Download Bonsai 2 to chat and get writing help locally. The default settings are all you need.";
+
+"下载完成不代表已就绪，文件检查后还需要加载模型。" = "After downloading, the files are checked and the model is loaded before it is ready.";
+
+"下载并准备" = "Download and prepare";
+
+
+"从 GitHub 和 Hugging Face 下载，完成后校验文件。" = "Downloaded from GitHub and Hugging Face, then checked for integrity.";
+
+"保存位置" = "Storage location";
+
+"关闭窗口可继续准备。退出应用后，下次可继续下载。" = "Preparation continues if you close the window. If you quit the app, you can resume the download next time.";
+
+
+"准备" = "Prepare";
+
+"准备好了，开始第一段对话" = "Ready for your first conversation";
+
+"准备好时，再开始。" = "Start when you are ready.";
+
+"准备完成后会留在此页，由你打开聊天。" = "This page will stay open when ready so you can choose when to start chatting.";
+
+"取消准备" = "Cancel preparation";
+
+
+"在这台 Mac 上开始使用 AI" = "Start using AI on this Mac";
+
+"复制示例" = "Copy example";
+
+"安装与加载" = "Install and load";
+
+"安装后可在设置中更改模型位置。" = "You can change the model location in Settings after installation.";
+
+"安装需 %@ · 可用 %@" = "Installation needs %@ · %@ available";
+
+"已完成的下载会保留。" = "Completed downloads are kept.";
+
+"开始聊天" = "Start chatting";
+
+"当前服务无法确认聊天可用，或正在使用 API 模式。请进入主界面查看连接与接管选项。" = "Chat availability is unknown or the service is in API mode. Open the dashboard for connection and takeover options.";
+
+"当前步骤" = "Current step";
+
+"快速入门" = "Quick start";
+
+"总下载进度" = "Overall download progress";
+
+"文件已安装。启动模型后，即可使用本机服务。" = "Files are installed. Start the model to use the local service.";
+
+"文件已安装，模型尚未启动" = "Files installed, model not started";
+
+"未能打开聊天页面。请重试，或复制本机地址到浏览器。" = "Could not open the chat page. Try again or copy the local address into your browser.";
+
+"查看下载内容" = "View downloads";
+
+
+"模型准备好后，可在浏览器中打开本机聊天页面。" = "Once the model is ready, you can open the local chat page in your browser.";
+
+"模型尚未准备好。继续设置后，就能在这台 Mac 上使用本机 AI。" = "The model is not ready yet. Continue setup to use local AI on this Mac.";
+
+"模型文件已就绪" = "Model files are ready";
+
+"正在下载 Bonsai 2" = "Downloading Bonsai 2";
+
+"正在加载模型" = "Loading the model";
+
+"正在把模型加载到内存中，请稍候。" = "Loading the model into memory. Please wait.";
+
+"正在检查下载的文件" = "Checking downloaded files";
+
+"正在检查可用空间…" = "Checking available space…";
+
+"正在等待网络恢复" = "Waiting for the network";
+
+"正在配置本地环境" = "Setting up the local environment";
+
+"满足当前硬件要求" = "Meets current hardware requirements";
+
+"点击“开始聊天”，在系统默认浏览器中打开本机聊天页面。" = "Click Start chatting to open the local chat page in your default browser.";
+
+"用通俗的话解释一下，什么是大语言模型？" = "Explain in simple terms: what is a large language model?";
+
+
+"稍后设置" = "Set up later";
+
+"空间不足，请清理后重新检查。" = "Not enough space. Free up storage and check again.";
+
+"约剩 %lld 分钟" = "About %lld minutes remaining";
+
+"继续设置" = "Continue setup";
+
+"自动下载、校验并加载模型，完成后由你打开聊天。" = "Downloads, checks, and loads the model. You choose when to open chat.";
+
+"试试这句话" = "Try this prompt";
+
+
+"这台 Mac" = "This Mac";
+
+"进入主界面" = "Open dashboard";
+
+"连接其他应用" = "Connect other apps";
+
+"重新检查空间" = "Check space again";
+
+"重试启动" = "Retry starting";
+
+"重试打开" = "Try opening again";
+
+"首次下载需要联网；完成后，本机聊天可离线使用。" = "The initial download needs internet access. Local chat works offline once ready.";
+
+
+"默认设置即可开始。" = "The default settings are all you need.";
+
+"本机服务状态" = "Local service status";
+"API 地址（Base URL）" = "API address (Base URL)";
+"模型 ID" = "Model ID";
+"复制模型 ID" = "Copy model ID";
+"在其他应用中选择“OpenAI 兼容”，然后填写以下信息。" = "In the other app, choose “OpenAI-compatible”, then enter these details.";
+"暂时无法读取模型 ID。请重试，我们会自动从本机服务获取。" = "Couldn’t read the model ID. Try again to fetch it from the local service.";
+"重新读取模型 ID" = "Retry loading model ID";
+"正在读取模型 ID…" = "Loading model ID…";
+"API 密钥：本机连接无需密钥；如果应用要求必填，可填写 local。" = "API key: not required for local connections. If the app requires a value, enter local.";
+"这些信息用于连接这台 Mac 上的应用。" = "Use these details with apps running on this Mac.";
+
+"待完成组件总大小" = "Total size of unfinished components";
+
+"安装时自动创建" = "Created automatically during installation";
+
+"模型进程在加载完成前退出，请查看日志或在设置中校验文件。" = "The model process exited before loading finished. Check the logs or verify files in Settings.";

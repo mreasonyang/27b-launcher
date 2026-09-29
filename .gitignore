@@ -1,0 +1,20 @@
+.build/
+.build-scratch/
+dist/
+.swiftpm/
+.DS_Store
+.AppleDouble
+__MACOSX/
+Icon?
+*.xcuserstate
+
+# Release artifacts that escape dist/
+*.dmg
+
+# Never commit signing material
+*.p8
+*.p12
+*.mobileprovision
+*.provisionprofile
+.env
+.env.*

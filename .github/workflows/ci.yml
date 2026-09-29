@@ -1,0 +1,97 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    # Xcode 26 is required: Package.swift declares swift-tools-version 6.2.
+    # If the macos-26 label is unavailable, use macos-latest plus an
+    # `xcode-select -s /Applications/Xcode_26*.app` step.
+    runs-on: macos-26
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Toolchain
+        run: |
+          xcodebuild -version
+          swift --version
+          xcode-select -p
+
+      - name: Lint plists and shell scripts
+        run: |
+          plutil -lint Resources/Info.plist
+          plutil -lint Resources/PrivacyInfo.xcprivacy
+          for script in scripts/*.sh; do
+            sh -n "$script"
+            echo "ok $script"
+          done
+          # scripts/version-baseline is sourced shell data, not a *.sh script.
+          sh -n scripts/version-baseline
+          echo "ok scripts/version-baseline"
+          ./scripts/version.sh bundle
+          ./scripts/version.sh baseline
+
+      - name: swift test
+        run: swift test
+
+      - name: Build the app (ad-hoc, no certificate)
+        run: ./scripts/build-app.sh
+
+      - name: Verify the bundle layout
+        run: |
+          APP="dist/27B Launcher.app"
+          test -f "$APP/Contents/Resources/PrivacyInfo.xcprivacy"
+          test -f "$APP/Contents/Resources/AppIcon.icns"
+          test -f "$APP/Contents/MacOS/Launcher27B"
+          lipo -archs "$APP/Contents/MacOS/Launcher27B"
+          plutil -extract CFBundleShortVersionString raw -o - "$APP/Contents/Info.plist"
+          plutil -extract CFBundleVersion raw -o - "$APP/Contents/Info.plist"
+          codesign --verify --deep --strict --verbose=2 "$APP"
+          for localization in en zh-Hans zh-Hant es; do
+            test -d "$APP/Contents/Resources/$localization.lproj"
+          done
+
+      - name: Package release artifacts (unsigned)
+        run: ./scripts/package-release.sh
+
+      - name: Verify the DMG layout
+        run: |
+          DMG="$(ls dist/*.dmg | head -n 1)"
+          MOUNT="$(mktemp -d)"
+          hdiutil attach "$DMG" -nobrowse -readonly -mountpoint "$MOUNT"
+          test -d "$MOUNT/27B Launcher.app"
+          test -L "$MOUNT/Applications"
+          hdiutil detach "$MOUNT"
+
+      - name: Signing and notarization preflight (informational)
+        continue-on-error: true
+        run: ./scripts/sign-and-notarize.sh --check
+
+      - name: Uninstaller dry run (must not delete anything)
+        run: |
+          ./scripts/uninstall.sh
+          ./scripts/uninstall.sh --keep-app --keep-data
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: unsigned-artifacts
+          if-no-files-found: error
+          retention-days: 14
+          path: |
+            dist/*.zip
+            dist/*.dmg
+            dist/*.sha256

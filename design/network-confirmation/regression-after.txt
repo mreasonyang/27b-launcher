@@ -1,0 +1,672 @@
+Building for debugging...
+[1 / 10]
+[2 / 11] Launcher27B-product
+[4 / 13] Launcher27B-product
+[8 / 19] Launcher27B
+[9 / 20] Launcher27B-product
+[12 / 22] Launcher27B
+[18 / 21] Launcher27BTests-product
+[20 / 23] Launcher27BTests-product
+[25 / 27] Launcher27BTests-product
+Build complete! (5.89 sec)
+Test Suite 'All tests' started at 2026-09-30 00:57:39.418.
+Test Suite 'All tests' passed at 2026-09-30 00:57:39.422.
+	 Executed 0 tests, with 0 failures (0 unexpected) in 0.000 (0.003) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite ArtifactDownloaderIntegrationTests started.
+◇ Suite InstallationInspectorTests started.
+◇ Suite ServerSecurityTests started.
+◇ Suite CurrentDesignRegressionTests started.
+◇ Suite AppPreferencesTests started.
+◇ Suite ViewModelWiringTests started.
+◇ Suite LocalModelCatalogTests started.
+◇ Suite AblationStrengthTests started.
+◇ Suite OnboardingTests started.
+◇ Suite UIStatePresentationTests started.
+◇ Suite ServiceControllerLifecycleTests started.
+◇ Suite LocalizationTests started.
+◇ Suite InstallerRobustnessTests started.
+◇ Suite InstallationCatalogTests started.
+◇ Suite ServiceControllerTests started.
+◇ Suite ServiceStatusTests started.
+◇ Suite StorageMigrationSafetyTests started.
+◇ Suite FileChecksumTests started.
+◇ Suite LauncherWindowTests started.
+◇ Suite LlamaMetricsParserTests started.
+◇ Suite StorageMigrationRecoveryTests started.
+◇ Test userPausePersistsResumeDataBeforeReturning() started.
+◇ Suite DownloadWatchdogSeamTests started.
+◇ Test terminateEscalatesToSIGKILLWhenTheIdentityStillMatches() started.
+◇ Test reportsOnlyIncompleteArtifacts() started.
+◇ Test keychainFailureDoesNotCreatePlaintextCredentials() started.
+◇ Suite ServerArgumentsBuilderTests started.
+◇ Test deletingTheLockFileWhileHeldIsDetected() started.
+◇ Suite ErrorLocalizationTests started.
+◇ Test childEnvironmentKeepsOnlyTheAllowlist() started.
+◇ Test allInterfaceBindingDisablesTheWebUIAndAgentTools() started.
+◇ Test enforceCapTrimsALiveLogWithoutLosingTheTailOrThePermissions() started.
+◇ Test aHealthyListenerThatIsNotOurBinaryIsStillActionable() started.
+◇ Suite LauncherConfigTests started.
+◇ Test startRefusesToPretendAnOrphanUsedRequestedOptions() started.
+◇ Suite ModelStorageManagerTests started.
+◇ Test singleInstanceLockIsReentrantForTheOwner() started.
+◇ Test discoveryRequiresTheExpectedExecutableNameInsideTheSupportDirectory() started.
+◇ Test loopbackKeepsTodaysArgumentSetForTheBundledChatUI() started.
+◇ Test singleInstanceLockRejectsASecondOwner() started.
+◇ Test terminateRefusesAProcessThatIsNotTheLauncherRuntime() started.
+◇ Test preferencesPersistAcrossInstances() started.
+◇ Test discoversAndStopsAnUnownedServerProcess() started.
+◇ Test enforceCapNeverTruncatesWhenTheCopyCannotBeWritten() started.
+◇ Test primaryActionEnabledFollowsTheResolvedAction() started.
+◇ Test parserBoundsHugeCountersInsteadOfTrapping() started.
+◇ Test supportedLanguagesExposeExpectedLocalesAndNames() started.
+◇ Test fetchesModelIDWithoutCredentialsAndRejectsHTTPFailures() started.
+◇ Test theLiveLogIsOpenedForAppendSoAStaleOffsetCannotHoleIt() started.
+◇ Test hardwarePreflightIsSilentOnASupportedMac() started.
+◇ Test preservesTheExactServerModelID() started.
+◇ Test terminateRefusesTheForceKillWhenThePidChangedIdentity() started.
+◇ Test failedTruncationIsReportedAndCanBeRetriedAfterRepair() started.
+◇ Test supervisionNoticeReportsRetryingAndPausedStates() started.
+◇ Test enforceCapNeverTruncatesWhenTheNewestBytesCannotBePreserved() started.
+◇ Test aFailedCopyLeavesTheOlderGenerationsAlone() started.
+◇ Test heroAdoptsAnUnmanagedServerInsteadOfOpeningChat() started.
+◇ Test explicitLocationSurvivesRelaunchAndTwoMoves() started.
+◇ Test refusesMissingOrMalformedModelIDs(payload:) started.
+◇ Test logRotationRepairsWorldReadableLogFiles() started.
+◇ Test needsRepairCoversEveryUnusableArtifactState() started.
+◇ Test stopsAServerThatWasNeverAdopted() started.
+◇ Test heroOffersTheAPIAddressInsteadOfChatInLANMode() started.
+◇ Test hardwarePreflightBlocksIntelMacsBeforeDownloading() started.
+◇ Test thePortProbeDeadlineReturnsWithoutWaitingForAStalledChild() started.
+◇ Test launchedLANServerReceivesKeyThroughPipeAndKeepsBirthBoundOptions() started.
+◇ Test apiAddressIsTheClientEndpointAndNeverTheChatPage() started.
+◇ Test hardwarePreflightWarnsWithoutBlocking() started.
+◇ Test parserStillAcceptsLargeButRepresentableCounters() started.
+◇ Test logRotationCapsSizeAndKeepsGenerations() started.
+◇ Test aSupportRootOfSlashNeverMatches() started.
+◇ Test lanCredentialsUseAnInheritedPipeAndNeverArguments() started.
+◇ Test backgroundLogFailureReachesTheControllerProtocol() started.
+◇ Test nativeSetupAndReadyViewsFitAllLocalesAtMinimumSize() started.
+◇ Test crossOriginRequestsAreRestrictedOnlyInLANMode() started.
+◇ Test optionsUsePlainLanguageDescriptions() started.
+◇ Test aReplacedLockFileIsDetectedEvenThoughThePathStillExists() started.
+◇ Test apiKeyRotationReplacesTheStoredKey() started.
+◇ Test logRotationFiresDuringASingleLongSession() started.
+◇ Test pauseCancelsPreparationAndPreservesRetry() started.
+◇ Test aFailedStopPreservesOwnershipForRetry() started.
+◇ Test failedStartRetriesWithoutRedownloading() started.
+◇ Test aProbeWhoseChildExitsDoesNotLeaveItsDeadlineSleeping() started.
+◇ Test existingInstallationAndDeferredRouting() started.
+◇ Test LANAndUnknownServicesNeverOpenChat() started.
+◇ Test apiKeyStoreGeneratesOneStableURLSafeKey() started.
+◇ Test anEvictedLiveProbeIsRetainedAndSignalledSoItCanBeReaped() started.
+◇ Test installedFilesStillRequireFirstRunGuideUntilUserFinishes() started.
+◇ Test theLanWarningSurvivesAFailedBindModeRestart() started.
+◇ Test installerReportIncludesReserveAndIsTheEnforcedBudget() started.
+◇ Test childEnvironmentAlwaysProvidesPathAndHome() started.
+◇ Test parserDropsNonFiniteRates() started.
+◇ Test laterChoiceSurvivesRelaunchAndCanBeReopened() started.
+◇ Test aRetainedSourceDuplicateSurvivesARelaunch() started.
+◇ Test thePausedMessageReadsCorrectlyForAnyFailureCount() started.
+◇ Test downloadFailureDoesNotLoadOrOpenAndStaysActionable() started.
+◇ Test browserFailureKeepsReadyPageAndRetryClearsError() started.
+◇ Test theFailuresPauseReportsCrashesFromTheCrashWindow() started.
+◇ Test aForeignListenerIsNeverOfferedAdoption() started.
+◇ Test theCrashLoopPauseRendersACrashLoopSpecificMessage() started.
+◇ Test translationTablesContainNoDeadKeys() started.
+◇ Test portIdentityOnlyMatchesTheConfirmedListener() started.
+◇ Test diskAndHardwareBlockBeforeRunner() started.
+◇ Test noChineseLiteralEscapesLocalization() started.
+◇ Test anAdoptableListenerStillOffersAdoption() started.
+◇ Test aRetainedSourceDuplicateStopsBeingReportedOnceGone() started.
+◇ Test secondaryInstanceCannotPrepareOrStart() started.
+◇ Test onboardingWarningsAndFailuresFitWithoutScrolling() started.
+◇ Test anAdoptedServerKeepsUnknownLaunchOptions() started.
+◇ Test formatSpecifiersMatchTheirTranslations() started.
+◇ Test ordinaryRepairDoesNotInventFirstRunIntent() started.
+◇ Test damagedComponentsAreReportedInCatalogOrder() started.
+◇ Test startRechecksSpaceInsteadOfTrustingDisplayedSnapshot() started.
+◇ Test everyReferencedKeyIsTranslated() started.
+◇ Test limitedMemoryWarningStillAllowsPreparation() started.
+◇ Test aRelaunchedLauncherStillRecognisesTheServerItStarted() started.
+◇ Test completeTranslationsShareOneKeySet() started.
+◇ Test unavailableConfiguredModelLocationDoesNotOfferRedownload() started.
+◇ Test unreadableSpaceFailsClosedAndCanBeRechecked() started.
+◇ Test migrationRequiresAConfirmedStoppedService() started.
+◇ Test recognizesTaskAndURLSessionCancellation() started.
+◇ Test stringsFilesAreReadable() started.
+◇ Test resolvesObservedState(isManaged:isHealthy:expected:) started.
+◇ Test supervisionBacksOffWithoutClearingTheUserIntent() started.
+◇ Test operationTakesPriorityOverObservedState() started.
+◇ Test nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) started.
+◇ Test connectionModelIDCanRetryWithoutSendingTheUserElsewhere() started.
+◇ Test reportsAlreadyInstalledRuntimeAsReused() started.
+◇ Test refusesReadOnlyDestination() started.
+◇ Test aLayoutRevisionClearsTheRememberedWindowFrameExactlyOnce() started.
+◇ Test hashesFilesIncrementally() started.
+◇ Test chatIsNotOfferedWhenTheRunningServersOptionsAreUnknown() started.
+◇ Test englishAndSpanishContainNoCJK() started.
+◇ Test catalogPinsOfficialArtifactsAndChecksums() started.
+◇ Test theWindowIsSizedToExactlyContainItsContent() started.
+◇ Test freshInstallationLoadsOnceButNeverOpensBrowserAutomatically() started.
+◇ Test launcherFittingSizeMatchesDefaultWithoutChangingMinimum() started.
+◇ Test resumesFromCapturedInFlightCheckpointAfterSimulatedCrash() started.
+◇ Test desktopWindowHasAUsableResizableCanvas() started.
+◇ Test revealLogsOpensTheLogDirectoryItself() started.
+◇ Test disappearingNoticeReclaimsOnlyAutomaticallyAddedHeight() started.
+◇ Test stringsFilesContainNoDuplicateKeys() started.
+◇ Test saturatingSumKeepsOrdinaryAndNegativeResultsExact() started.
+◇ Test extremeCountersSaturateInsteadOfTrapping() started.
+◇ Test rejectsIncompleteOrLabeledCountersFromAnUnexpectedSchema() started.
+◇ Test parsesTokenCountersAndOperationalGauges() started.
+◇ Test rejectsPayloadWithoutTokenCounters() started.
+◇ Test case passing 1 argument payload → "{"data":[]}" to refusesMissingOrMalformedModelIDs(payload:) started.
+◇ Test case passing 1 argument payload → "{"data":[{"id":" "}]}" to refusesMissingOrMalformedModelIDs(payload:) started.
+◇ Test case passing 1 argument payload → "{"data":[{}]}" to refusesMissingOrMalformedModelIDs(payload:) started.
+◇ Test case passing 1 argument payload → "<html>Unavailable</html>" to refusesMissingOrMalformedModelIDs(payload:) started.
+◇ Test destinationProbeFailsClosedWhenTheVolumeCannotBeInspected() started.
+◇ Test case passing 3 arguments isManaged → false, isHealthy → false, expected → .stopped to resolvesObservedState(isManaged:isHealthy:expected:) started.
+◇ Test parkedOnConnectivityGetsTheOfflineRetryBudgetNotTheWedgedOne() started.
+◇ Test case passing 3 arguments isManaged → true, isHealthy → false, expected → .starting to resolvesObservedState(isManaged:isHealthy:expected:) started.
+◇ Test case passing 3 arguments isManaged → true, isHealthy → true, expected → .running to resolvesObservedState(isManaged:isHealthy:expected:) started.
+◇ Test case passing 2 arguments stop → false, initiallyOversized → false to nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) started.
+◇ Test case passing 3 arguments isManaged → false, isHealthy → true, expected → .external to resolvesObservedState(isManaged:isHealthy:expected:) started.
+◇ Test case passing 2 arguments stop → false, initiallyOversized → true to nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) started.
+◇ Test customProjectionUsesScaledLoraArgument() started.
+◇ Test case passing 2 arguments stop → true, initiallyOversized → false to nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) started.
+◇ Test enablesExactServerTokenMetrics() started.
+◇ Test case passing 2 arguments stop → true, initiallyOversized → true to nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) started.
+◇ Test exactProjectionUsesDefaultLoraScale() started.
+◇ Test loopbackModeBindsOnlyToThisMac() started.
+◇ Test originalModeDoesNotLoadAdapter() started.
+◇ Test allInterfacesModeBindsZeroAddress() started.
+◇ Test englishRenderingOfEveryErrorCaseContainsNoCJK() started.
+◇ Test defaultInstallationUsesBonsaiSupportDirectory() started.
+◇ Test relativeSupportDirectoryOverrideIsIgnored() started.
+◇ Test absoluteSupportDirectoryOverrideIsIsolated() started.
+✔ Test childEnvironmentKeepsOnlyTheAllowlist() passed after 0.066 seconds.
+◇ Test rejectsDestinationSymlinkedInsideCurrentModels() started.
+✔ Test allInterfaceBindingDisablesTheWebUIAndAgentTools() passed after 0.066 seconds.
+✔ Test discoveryRequiresTheExpectedExecutableNameInsideTheSupportDirectory() passed after 0.066 seconds.
+✔ Test loopbackKeepsTodaysArgumentSetForTheBundledChatUI() passed after 0.066 seconds.
+✔ Test singleInstanceLockIsReentrantForTheOwner() passed after 0.067 seconds.
+✔ Test primaryActionEnabledFollowsTheResolvedAction() passed after 0.072 seconds.
+✔ Test keychainFailureDoesNotCreatePlaintextCredentials() passed after 0.072 seconds.
+✔ Test parserBoundsHugeCountersInsteadOfTrapping() passed after 0.072 seconds.
+✔ Test supportedLanguagesExposeExpectedLocalesAndNames() passed after 0.072 seconds.
+✔ Test preservesTheExactServerModelID() passed after 0.072 seconds.
+✔ Test theLiveLogIsOpenedForAppendSoAStaleOffsetCannotHoleIt() passed after 0.072 seconds.
+✔ Test supervisionNoticeReportsRetryingAndPausedStates() passed after 0.072 seconds.
+✔ Test singleInstanceLockRejectsASecondOwner() passed after 0.074 seconds.
+✔ Test reportsOnlyIncompleteArtifacts() passed after 0.074 seconds.
+✔ Test logRotationRepairsWorldReadableLogFiles() passed after 0.074 seconds.
+✔ Test enforceCapNeverTruncatesWhenTheCopyCannotBeWritten() passed after 0.074 seconds.
+✔ Test needsRepairCoversEveryUnusableArtifactState() passed after 0.074 seconds.
+✔ Test refusesMissingOrMalformedModelIDs(payload:) with 4 test cases passed after 0.074 seconds.
+✔ Test deletingTheLockFileWhileHeldIsDetected() passed after 0.076 seconds.
+✔ Test aFailedCopyLeavesTheOlderGenerationsAlone() passed after 0.075 seconds.
+✔ Test enforceCapTrimsALiveLogWithoutLosingTheTailOrThePermissions() passed after 0.076 seconds.
+✔ Test failedTruncationIsReportedAndCanBeRetriedAfterRepair() passed after 0.075 seconds.
+✔ Test parserStillAcceptsLargeButRepresentableCounters() passed after 0.075 seconds.
+✔ Test apiAddressIsTheClientEndpointAndNeverTheChatPage() passed after 0.076 seconds.
+✔ Test lanCredentialsUseAnInheritedPipeAndNeverArguments() passed after 0.076 seconds.
+✔ Test optionsUsePlainLanguageDescriptions() passed after 0.076 seconds.
+✔ Test crossOriginRequestsAreRestrictedOnlyInLANMode() passed after 0.076 seconds.
+✔ Test apiKeyRotationReplacesTheStoredKey() passed after 0.076 seconds.
+✔ Test logRotationCapsSizeAndKeepsGenerations() passed after 0.076 seconds.
+✔ Test aReplacedLockFileIsDetectedEvenThoughThePathStillExists() passed after 0.077 seconds.
+✔ Test apiKeyStoreGeneratesOneStableURLSafeKey() passed after 0.077 seconds.
+✔ Test parserDropsNonFiniteRates() passed after 0.077 seconds.
+✔ Test childEnvironmentAlwaysProvidesPathAndHome() passed after 0.077 seconds.
+✔ Test thePausedMessageReadsCorrectlyForAnyFailureCount() passed after 0.077 seconds.
+✔ Test theFailuresPauseReportsCrashesFromTheCrashWindow() passed after 0.077 seconds.
+✔ Test enforceCapNeverTruncatesWhenTheNewestBytesCannotBePreserved() passed after 0.078 seconds.
+✔ Test damagedComponentsAreReportedInCatalogOrder() passed after 0.078 seconds.
+✔ Test formatSpecifiersMatchTheirTranslations() passed after 0.078 seconds.
+✔ Test completeTranslationsShareOneKeySet() passed after 0.078 seconds.
+✔ Test migrationRequiresAConfirmedStoppedService() passed after 0.078 seconds.
+✔ Test recognizesTaskAndURLSessionCancellation() passed after 0.078 seconds.
+✔ Test stringsFilesAreReadable() passed after 0.081 seconds.
+✔ Test supervisionBacksOffWithoutClearingTheUserIntent() passed after 0.081 seconds.
+✔ Test operationTakesPriorityOverObservedState() passed after 0.081 seconds.
+✔ Test resolvesObservedState(isManaged:isHealthy:expected:) with 4 test cases passed after 0.081 seconds.
+✔ Test aSupportRootOfSlashNeverMatches() passed after 0.082 seconds.
+✔ Test hashesFilesIncrementally() passed after 0.081 seconds.
+✔ Test refusesReadOnlyDestination() passed after 0.083 seconds.
+✔ Test catalogPinsOfficialArtifactsAndChecksums() passed after 0.083 seconds.
+✔ Test theWindowIsSizedToExactlyContainItsContent() passed after 0.082 seconds.
+✔ Test desktopWindowHasAUsableResizableCanvas() passed after 0.083 seconds.
+✔ Test englishAndSpanishContainNoCJK() passed after 0.083 seconds.
+✔ Test disappearingNoticeReclaimsOnlyAutomaticallyAddedHeight() passed after 0.083 seconds.
+✔ Test stringsFilesContainNoDuplicateKeys() passed after 0.083 seconds.
+✔ Test saturatingSumKeepsOrdinaryAndNegativeResultsExact() passed after 0.083 seconds.
+✔ Test extremeCountersSaturateInsteadOfTrapping() passed after 0.083 seconds.
+✔ Test rejectsIncompleteOrLabeledCountersFromAnUnexpectedSchema() passed after 0.083 seconds.
+✔ Test parsesTokenCountersAndOperationalGauges() passed after 0.083 seconds.
+✔ Test rejectsPayloadWithoutTokenCounters() passed after 0.083 seconds.
+✔ Test everyReferencedKeyIsTranslated() passed after 0.086 seconds.
+✔ Test destinationProbeFailsClosedWhenTheVolumeCannotBeInspected() passed after 0.051 seconds.
+✔ Test preferencesPersistAcrossInstances() passed after 0.088 seconds.
+✔ Test customProjectionUsesScaledLoraArgument() passed after 0.030 seconds.
+✔ Test enablesExactServerTokenMetrics() passed after 0.025 seconds.
+✔ Test exactProjectionUsesDefaultLoraScale() passed after 0.025 seconds.
+✔ Test loopbackModeBindsOnlyToThisMac() passed after 0.027 seconds.
+✔ Test originalModeDoesNotLoadAdapter() passed after 0.026 seconds.
+✔ Test allInterfacesModeBindsZeroAddress() passed after 0.026 seconds.
+✔ Test defaultInstallationUsesBonsaiSupportDirectory() passed after 0.023 seconds.
+✔ Test relativeSupportDirectoryOverrideIsIgnored() passed after 0.023 seconds.
+✔ Test absoluteSupportDirectoryOverrideIsIsolated() passed after 0.023 seconds.
+✔ Test rejectsDestinationSymlinkedInsideCurrentModels() passed after 0.025 seconds.
+✔ Suite InstallationInspectorTests passed after 0.092 seconds.
+✔ Test hardwarePreflightIsSilentOnASupportedMac() passed after 0.091 seconds.
+✔ Suite AblationStrengthTests passed after 0.092 seconds.
+✔ Test noChineseLiteralEscapesLocalization() passed after 0.091 seconds.
+✔ Suite ServiceStatusTests passed after 0.092 seconds.
+✔ Test anEvictedLiveProbeIsRetainedAndSignalledSoItCanBeReaped() passed after 0.091 seconds.
+✔ Suite FileChecksumTests passed after 0.092 seconds.
+✔ Test aProbeWhoseChildExitsDoesNotLeaveItsDeadlineSleeping() passed after 0.088 seconds.
+✔ Suite InstallationCatalogTests passed after 0.092 seconds.
+✔ Suite LlamaMetricsParserTests passed after 0.092 seconds.
+✔ Suite AppPreferencesTests passed after 0.093 seconds.
+✔ Suite ServerArgumentsBuilderTests passed after 0.092 seconds.
+✔ Test fetchesModelIDWithoutCredentialsAndRejectsHTTPFailures() passed after 0.092 seconds.
+✔ Suite LauncherConfigTests passed after 0.092 seconds.
+◇ Test supervisionBackoffGrowsAndIsCapped() started.
+◇ Test refusesNetworkDestination() started.
+◇ Test failedStagingRestoreKeepsThePreviousModelFile() started.
+✔ Suite LocalModelCatalogTests passed after 0.093 seconds.
+◇ Test migratesVerifiesAndRecordsExplicitLocation() started.
+✔ Test supervisionBackoffGrowsAndIsCapped() passed after 0.001 seconds.
+✔ Test failedStagingRestoreKeepsThePreviousModelFile() passed after 0.012 seconds.
+✔ Test hardwarePreflightBlocksIntelMacsBeforeDownloading() passed after 0.105 seconds.
+✔ Test terminateRefusesAProcessThatIsNotTheLauncherRuntime() passed after 0.108 seconds.
+✔ Suite StorageMigrationRecoveryTests passed after 0.108 seconds.
+◇ Test theBackoffLadderEndsAt45SecondsBeforeTheBudgetPauses() started.
+✔ Test heroOffersTheAPIAddressInsteadOfChatInLANMode() passed after 0.108 seconds.
+✔ Test theBackoffLadderEndsAt45SecondsBeforeTheBudgetPauses() passed after 0.001 seconds.
+◇ Test aMomentaryHealthyReadingDoesNotResetTheFailureBudget() started.
+✔ Test aMomentaryHealthyReadingDoesNotResetTheFailureBudget() passed after 0.001 seconds.
+◇ Test aServerThatKeepsDyingAfterHealthPausesInsteadOfReloadingForever() started.
+✔ Test migratesVerifiesAndRecordsExplicitLocation() passed after 0.024 seconds.
+◇ Test failedVerificationKeepsOriginalModelsAndRemovesStagingCopy() started.
+✔ Test refusesNetworkDestination() passed after 0.026 seconds.
+◇ Test refusesFileSystemThatCannotHoldLargeModelFiles() started.
+✔ Test refusesFileSystemThatCannotHoldLargeModelFiles() passed after 0.004 seconds.
+◇ Test realVolumeProbeReportsLocalWritableTemporaryDirectory() started.
+✔ Test realVolumeProbeReportsLocalWritableTemporaryDirectory() passed after 0.001 seconds.
+◇ Test sizeRestrictedFileSystemsAreNeverReportedCapable() started.
+✔ Test sizeRestrictedFileSystemsAreNeverReportedCapable() passed after 0.001 seconds.
+◇ Test refusesRealFat32VolumeForModelFilesAboveFourGigabytes() started.
+✔ Test explicitLocationSurvivesRelaunchAndTwoMoves() passed after 0.126 seconds.
+✔ Test hardwarePreflightWarnsWithoutBlocking() passed after 0.126 seconds.
+◇ Test existingNonemptySymlinkDestinationNeedsOnlyHeadroom() started.
+✔ Test failedVerificationKeepsOriginalModelsAndRemovesStagingCopy() passed after 0.010 seconds.
+◇ Test cancellationDuringMigrationRemovesStagingAndKeepsOriginalModels() started.
+✔ Test existingNonemptySymlinkDestinationNeedsOnlyHeadroom() passed after 0.014 seconds.
+◇ Test copyingStillRequiresSpaceForAllBytes() started.
+✔ Test copyingStillRequiresSpaceForAllBytes() passed after 0.005 seconds.
+◇ Test sameSizeBadDestinationIsNeverSelectedOrDeleted() started.
+✔ Test cancellationDuringMigrationRemovesStagingAndKeepsOriginalModels() passed after 0.030 seconds.
+✔ Suite ModelStorageManagerTests passed after 0.159 seconds.
+✔ Test sameSizeBadDestinationIsNeverSelectedOrDeleted() passed after 0.030 seconds.
+◇ Test equalSizedDifferentExtraFilesCannotAuthorizeSourceDeletion() started.
+✔ Test equalSizedDifferentExtraFilesCannotAuthorizeSourceDeletion() passed after 0.018 seconds.
+◇ Test changedSourceDuringCopyIsPreserved() started.
+✔ Test changedSourceDuringCopyIsPreserved() passed after 0.009 seconds.
+◇ Test sourceRewriteWithRestoredSizeAndMtimeStillPreventsDeletion() started.
+✔ Test startRefusesToPretendAnOrphanUsedRequestedOptions() passed after 0.220 seconds.
+✔ Test sourceRewriteWithRestoredSizeAndMtimeStillPreventsDeletion() passed after 0.016 seconds.
+◇ Test failedStopCannotBeginDamagedComponentRepair() started.
+✔ Test secondaryInstanceCannotPrepareOrStart() passed after 0.263 seconds.
+✔ Test thePortProbeDeadlineReturnsWithoutWaitingForAStalledChild() passed after 0.278 seconds.
+✔ Test unavailableConfiguredModelLocationDoesNotOfferRedownload() passed after 0.307 seconds.
+✔ Test reportsAlreadyInstalledRuntimeAsReused() passed after 0.321 seconds.
+✔ Test aLayoutRevisionClearsTheRememberedWindowFrameExactlyOnce() passed after 0.333 seconds.
+✔ Test terminateRefusesTheForceKillWhenThePidChangedIdentity() passed after 0.430 seconds.
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54961)
+Traceback (most recent call last):
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 434, in handle
+    self.handle_one_request()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 422, in handle_one_request
+    method()
+  File "~/Documents/projects/27b-launcher/Tests/Fixtures/interrupted_range_server.py", line 101, in do_GET
+    self.wfile.write(chunk_at(offset, length))
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 826, in write
+    self._sock.sendall(b)
+BrokenPipeError: [Errno 32] Broken pipe
+----------------------------------------
+✔ Test stopsAServerThatWasNeverAdopted() passed after 0.478 seconds.
+✔ Test terminateEscalatesToSIGKILLWhenTheIdentityStillMatches() passed after 0.515 seconds.
+>>> MEASURED FITTING SIZE: (860.0, 640.0)
+✔ Test launcherFittingSizeMatchesDefaultWithoutChangingMinimum() passed after 0.554 seconds.
+✔ Suite LauncherWindowTests passed after 0.556 seconds.
+✔ Test revealLogsOpensTheLogDirectoryItself() passed after 0.563 seconds.
+✔ Suite ServiceControllerTests passed after 0.565 seconds.
+✔ Test englishRenderingOfEveryErrorCaseContainsNoCJK() passed after 0.501 seconds.
+◇ Test chineseRenderingOfEveryErrorCaseContainsCJK() started.
+✔ Test discoversAndStopsAnUnownedServerProcess() passed after 0.607 seconds.
+✔ Test installerReportIncludesReserveAndIsTheEnforcedBudget() passed after 0.781 seconds.
+✔ Test limitedMemoryWarningStillAllowsPreparation() passed after 0.810 seconds.
+✔ Test unreadableSpaceFailsClosedAndCanBeRechecked() passed after 0.810 seconds.
+✔ Test chineseRenderingOfEveryErrorCaseContainsCJK() passed after 0.246 seconds.
+◇ Test packageResourcesOverrideResolvesRealTranslations() started.
+✔ Test existingInstallationAndDeferredRouting() passed after 0.813 seconds.
+✔ Test laterChoiceSurvivesRelaunchAndCanBeReopened() passed after 0.813 seconds.
+✔ Test aRetainedSourceDuplicateSurvivesARelaunch() passed after 0.814 seconds.
+✔ Test heroAdoptsAnUnmanagedServerInsteadOfOpeningChat() passed after 0.843 seconds.
+✔ Suite ViewModelWiringTests passed after 0.844 seconds.
+✔ Test packageResourcesOverrideResolvesRealTranslations() passed after 0.031 seconds.
+◇ Test systemFileOperationFailedNeverEmbedsOSLanguageTextInEnglish() started.
+✔ Test diskAndHardwareBlockBeforeRunner() passed after 0.845 seconds.
+✔ Test anAdoptableListenerStillOffersAdoption() passed after 0.845 seconds.
+✔ Test startRechecksSpaceInsteadOfTrustingDisplayedSnapshot() passed after 0.845 seconds.
+✔ Test chatIsNotOfferedWhenTheRunningServersOptionsAreUnknown() passed after 0.846 seconds.
+✔ Test systemFileOperationFailedNeverEmbedsOSLanguageTextInEnglish() passed after 0.013 seconds.
+◇ Test fileSystemFailureLocalizesClassifiedErrorsWithoutTheOSMessage() started.
+✔ Test aRetainedSourceDuplicateStopsBeingReportedOnceGone() passed after 0.859 seconds.
+✔ Test ordinaryRepairDoesNotInventFirstRunIntent() passed after 0.872 seconds.
+✔ Test downloadFailureDoesNotLoadOrOpenAndStaysActionable() passed after 0.873 seconds.
+✔ Test pauseCancelsPreparationAndPreservesRetry() passed after 0.873 seconds.
+✔ Test aForeignListenerIsNeverOfferedAdoption() passed after 0.874 seconds.
+✔ Test fileSystemFailureLocalizesClassifiedErrorsWithoutTheOSMessage() passed after 0.019 seconds.
+◇ Test permissionDeniedMigrationFailureRendersWithoutCJKInEnglish() started.
+✔ Test logRotationFiresDuringASingleLongSession() passed after 1.139 seconds.
+✔ Test launchedLANServerReceivesKeyThroughPipeAndKeepsBirthBoundOptions() passed after 1.153 seconds.
+✔ Test backgroundLogFailureReachesTheControllerProtocol() passed after 1.685 seconds.
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 54962)
+Traceback (most recent call last):
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 436, in handle
+    self.handle_one_request()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 402, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+----------------------------------------
+✔ Test userPausePersistsResumeDataBeforeReturning() passed after 1.769 seconds.
+◇ Test automaticallyRetriesAndResumesAfterConnectionDrops() started.
+✔ Test permissionDeniedMigrationFailureRendersWithoutCJKInEnglish() passed after 0.951 seconds.
+✔ Suite ErrorLocalizationTests passed after 1.830 seconds.
+✔ Test failedStopCannotBeginDamagedComponentRepair() passed after 1.626 seconds.
+◇ Test productionSignalIdentityRejectsSamePathWithDifferentBirth() started.
+✔ Test productionSignalIdentityRejectsSamePathWithDifferentBirth() passed after 0.003 seconds.
+◇ Test corruptLocationNeverUsesDefaultModels() started.
+✔ Test corruptLocationNeverUsesDefaultModels() passed after 0.002 seconds.
+◇ Test atomicLocationWriteFailurePreservesVerifiedDestination() started.
+✔ Test atomicLocationWriteFailurePreservesVerifiedDestination() passed after 0.007 seconds.
+◇ Test deadCopyJournalIsReclaimedButLiveOwnerIsPreserved() started.
+✔ Test deadCopyJournalIsReclaimedButLiveOwnerIsPreserved() passed after 0.003 seconds.
+◇ Test unknownJournalCannotDeleteAnUnrelatedDirectory() started.
+✔ Test unknownJournalCannotDeleteAnUnrelatedDirectory() passed after 0.002 seconds.
+◇ Test unknownCheckpointFormatsAreRejected() started.
+✔ Test unknownCheckpointFormatsAreRejected() passed after 0.002 seconds.
+◇ Test diskCapacityIsARealNonnegativeMeasurement() started.
+✔ Test diskCapacityIsARealNonnegativeMeasurement() passed after 0.002 seconds.
+◇ Test failedLockNeverAllowsMutations() started.
+✔ Test browserFailureKeepsReadyPageAndRetryClearsError() passed after 1.958 seconds.
+✔ Test failedLockNeverAllowsMutations() passed after 0.088 seconds.
+◇ Test metricsNeverAttachCredentialsAndPublicTelemetryWorks() started.
+✔ Test metricsNeverAttachCredentialsAndPublicTelemetryWorks() passed after 0.001 seconds.
+◇ Test monitoringRefusesRealHTTPRedirects() started.
+✔ Test theLanWarningSurvivesAFailedBindModeRestart() passed after 1.968 seconds.
+✔ Test LANAndUnknownServicesNeverOpenChat() passed after 2.025 seconds.
+✔ Test installedFilesStillRequireFirstRunGuideUntilUserFinishes() passed after 2.028 seconds.
+✔ Test aFailedStopPreservesOwnershipForRetry() passed after 2.047 seconds.
+✔ Test connectionModelIDCanRetryWithoutSendingTheUserElsewhere() passed after 2.051 seconds.
+✔ Test freshInstallationLoadsOnceButNeverOpensBrowserAutomatically() passed after 2.054 seconds.
+✔ Test failedStartRetriesWithoutRedownloading() passed after 2.057 seconds.
+✔ Test monitoringRefusesRealHTTPRedirects() passed after 0.169 seconds.
+◇ Test foreignHealthyListenerDoesNotPublishTelemetry() started.
+✔ Test aRelaunchedLauncherStillRecognisesTheServerItStarted() passed after 2.229 seconds.
+✔ Test anAdoptedServerKeepsUnknownLaunchOptions() passed after 2.235 seconds.
+✔ Test foreignHealthyListenerDoesNotPublishTelemetry() passed after 0.121 seconds.
+◇ Test damagedComponentsSurviveRecheckAndRelaunch() started.
+✔ Test aHealthyListenerThatIsNotOurBinaryIsStillActionable() passed after 2.255 seconds.
+✔ Test damagedComponentsSurviveRecheckAndRelaunch() passed after 0.011 seconds.
+◇ Test checkpointWriteFailureCannotLookSuccessful() started.
+✔ Test checkpointWriteFailureCannotLookSuccessful() passed after 0.001 seconds.
+◇ Test checkpointCannotClaimBytesMissingFromThePartial() started.
+✔ Test checkpointCannotClaimBytesMissingFromThePartial() passed after 0.001 seconds.
+◇ Test unreadableMetadataNeverBecomesAnEmptyDirectory() started.
+✔ Test unreadableMetadataNeverBecomesAnEmptyDirectory() passed after 0.001 seconds.
+◇ Test unknownVolumeIdentityCannotSelectCopy() started.
+✔ Test unknownVolumeIdentityCannotSelectCopy() passed after 0.001 seconds.
+◇ Test malformedLocationCannotHideARetainedSource() started.
+✔ Test malformedLocationCannotHideARetainedSource() passed after 0.001 seconds.
+◇ Test invalidSettingsBlockLaunchUntilExplicitReset() started.
+✔ Test invalidSettingsBlockLaunchUntilExplicitReset() passed after 0.006 seconds.
+✔ Suite CurrentDesignRegressionTests passed after 2.283 seconds.
+✔ Test theCrashLoopPauseRendersACrashLoopSpecificMessage() passed after 2.358 seconds.
+✔ Suite UIStatePresentationTests passed after 2.360 seconds.
+✔ Test aServerThatKeepsDyingAfterHealthPausesInsteadOfReloadingForever() passed after 2.266 seconds.
+◇ Test aSingleCrashOfALongRunningServerIsStillRestarted() started.
+✔ Test aSingleCrashOfALongRunningServerIsStillRestarted() passed after 0.022 seconds.
+◇ Test aCrashImmediatelyAfterHealthStillSpendsTheFailureBudget() started.
+✔ Test aCrashImmediatelyAfterHealthStillSpendsTheFailureBudget() passed after 0.011 seconds.
+◇ Test aSingleCrashOfAServerThatOutlivedTheProductionWindowIsStillRestarted() started.
+✔ Test refusesRealFat32VolumeForModelFilesAboveFourGigabytes() passed after 2.359 seconds.
+◇ Test migratesToRealNonBootVolumeWithAmpleSpace() started.
+✔ Test aSingleCrashOfAServerThatOutlivedTheProductionWindowIsStillRestarted() passed after 0.204 seconds.
+◇ Test aServerThatAlwaysOutlivesTheStabilityWindowStillPauses() started.
+✔ Test aServerThatAlwaysOutlivesTheStabilityWindowStillPauses() passed after 0.099 seconds.
+◇ Test transientStartFailureKeepsTheRunIntentAndOnlyStopClearsIt() started.
+✔ Test transientStartFailureKeepsTheRunIntentAndOnlyStopClearsIt() passed after 0.020 seconds.
+◇ Test supervisionPausesAfterTheAttemptBudgetIsExhausted() started.
+✔ Test supervisionPausesAfterTheAttemptBudgetIsExhausted() passed after 0.109 seconds.
+◇ Test autoStartFiresWhenAnExternalVolumeArrivesAfterLaunch() started.
+✔ Test autoStartFiresWhenAnExternalVolumeArrivesAfterLaunch() passed after 0.023 seconds.
+◇ Test autoStartStaysOffWhenTheLoginItemIsDisabled() started.
+✔ Test autoStartStaysOffWhenTheLoginItemIsDisabled() passed after 0.005 seconds.
+◇ Test anInFlightInstallationNeverBecomesReady() started.
+✔ Test anInFlightInstallationNeverBecomesReady() passed after 0.214 seconds.
+◇ Test aRunningDownloadIsNotReportedAsResumable() started.
+✔ Test aRunningDownloadIsNotReportedAsResumable() passed after 0.113 seconds.
+◇ Test aStaleRefreshCannotOverwriteANewerStatus() started.
+✔ Test aStaleRefreshCannotOverwriteANewerStatus() passed after 0.019 seconds.
+◇ Test aHealthyOrphanRequiresExplicitAdoption() started.
+✔ Test aHealthyOrphanRequiresExplicitAdoption() passed after 0.012 seconds.
+◇ Test anUnadoptableHealthyServerCanStillBeStopped() started.
+✔ Test anUnadoptableHealthyServerCanStillBeStopped() passed after 0.002 seconds.
+◇ Test aSecondInstanceNeitherMonitorsNorAdoptsTheServer() started.
+✔ Test aSecondInstanceNeitherMonitorsNorAdoptsTheServer() passed after 0.005 seconds.
+◇ Test aSecondaryInstanceDoesNotRefreshOnEveryMonitoringCycle() started.
+✔ Test aSecondaryInstanceDoesNotRefreshOnEveryMonitoringCycle() passed after 0.006 seconds.
+◇ Test quittingTheLauncherLeavesTheServerRunning() started.
+✔ Test quittingTheLauncherLeavesTheServerRunning() passed after 0.038 seconds.
+◇ Test anUnsupportedMacIsRefusedBeforeTheDownload() started.
+✔ Test anUnsupportedMacIsRefusedBeforeTheDownload() passed after 0.003 seconds.
+◇ Test lowMemoryIsAWarningRatherThanABlocker() started.
+✔ Test lowMemoryIsAWarningRatherThanABlocker() passed after 0.015 seconds.
+◇ Test lanBindingRequiresExplicitConfirmation() started.
+✔ Test lanBindingRequiresExplicitConfirmation() passed after 0.005 seconds.
+◇ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+◇ Test case passing 2 arguments running → false, dismissBeforeAction → false to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+◇ Test case passing 2 arguments running → false, dismissBeforeAction → true to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+◇ Test case passing 2 arguments running → true, dismissBeforeAction → false to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✔ Test automaticallyRetriesAndResumesAfterConnectionDrops() passed after 1.662 seconds.
+✔ Suite ArtifactDownloaderIntegrationTests passed after 3.432 seconds.
+◇ Test case passing 2 arguments running → true, dismissBeforeAction → true to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✔ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) with 4 test cases passed after 0.330 seconds.
+◇ Test dismissingLANConfirmationDoesNotChangeScope() started.
+✔ Test dismissingLANConfirmationDoesNotChangeScope() passed after 0.007 seconds.
+◇ Test anInterruptedModelMigrationIsReconciledOnTheNextLaunch() started.
+✔ Test anInterruptedModelMigrationIsReconciledOnTheNextLaunch() passed after 0.064 seconds.
+◇ Test theRunIntentIsRecordedBeforeAMigrationStopsTheService() started.
+✔ Test theRunIntentIsRecordedBeforeAMigrationStopsTheService() passed after 0.039 seconds.
+◇ Test aSecondInstanceBecomesPrimaryAfterTheFirstReleasesTheLock() started.
+✔ Test aSecondInstanceBecomesPrimaryAfterTheFirstReleasesTheLock() passed after 0.022 seconds.
+◇ Test aTakeoverDoesNotResurrectAServerTheUserStopped() started.
+✔ Test aTakeoverDoesNotResurrectAServerTheUserStopped() passed after 0.098 seconds.
+◇ Test aRunningLanServerKeepsItsScopeWhenTheBindPreferenceFlipsBack() started.
+✔ Test aRunningLanServerKeepsItsScopeWhenTheBindPreferenceFlipsBack() passed after 0.008 seconds.
+◇ Test aRunningServerThisProcessDidNotStartHasUnknownLaunchOptions() started.
+✔ Test aRunningServerThisProcessDidNotStartHasUnknownLaunchOptions() passed after 0.059 seconds.
+◇ Test aHealthyForeignListenerIsIdentifiedAndStoppableButNotAdoptable() started.
+✔ Test aHealthyForeignListenerIsIdentifiedAndStoppableButNotAdoptable() passed after 0.006 seconds.
+◇ Test aForeignListenerThatExitsStopsBeingPublished() started.
+✔ Test aForeignListenerThatExitsStopsBeingPublished() passed after 0.023 seconds.
+◇ Test theNewestErrorSurvivesDismissal() started.
+✔ Test theNewestErrorSurvivesDismissal() passed after 0.004 seconds.
+◇ Test rawSystemErrorsAreMappedToLocalizedMessages() started.
+✔ Test rawSystemErrorsAreMappedToLocalizedMessages() passed after 0.005 seconds.
+✔ Suite ServiceControllerLifecycleTests passed after 3.984 seconds.
+Window notice stop: 782.0 -> 649.0
+Window notice stop: 782.0 -> 649.0
+Window notice adopt: 782.0 -> 686.0
+Window notice adopt: 782.0 -> 686.0
+✔ Test migratesToRealNonBootVolumeWithAmpleSpace() passed after 1.851 seconds.
+◇ Test refusesRealVolumeWithoutEnoughSpace() started.
+✔ Test nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop:initiallyOversized:) with 4 test cases passed after 4.740 seconds.
+✔ Test nativeSetupAndReadyViewsFitAllLocalesAtMinimumSize() passed after 5.160 seconds.
+✔ Test portIdentityOnlyMatchesTheConfirmedListener() passed after 5.198 seconds.
+✔ Suite ServerSecurityTests passed after 5.199 seconds.
+✔ Test onboardingWarningsAndFailuresFitWithoutScrolling() passed after 5.420 seconds.
+✔ Suite OnboardingTests passed after 5.421 seconds.
+✔ Test parkedOnConnectivityGetsTheOfflineRetryBudgetNotTheWedgedOne() passed after 6.276 seconds.
+✔ Suite DownloadWatchdogSeamTests passed after 6.329 seconds.
+✔ Test refusesRealVolumeWithoutEnoughSpace() passed after 2.138 seconds.
+◇ Test preservesUnjournaledDirectoriesDuringMigration() started.
+✔ Test preservesUnjournaledDirectoriesDuringMigration() passed after 0.007 seconds.
+◇ Test secondInstanceNeverReclaimsAnotherInstancesLiveStaging() started.
+✔ Test secondInstanceNeverReclaimsAnotherInstancesLiveStaging() passed after 0.016 seconds.
+◇ Test unavailableVolumeDescriptorDoesNotBypassValidation() started.
+✔ Test unavailableVolumeDescriptorDoesNotBypassValidation() passed after 0.002 seconds.
+◇ Test rejectsExistingDestinationThatIsNotACopyOfTheModels() started.
+✔ Test rejectsExistingDestinationThatIsNotACopyOfTheModels() passed after 0.003 seconds.
+◇ Test reportsIncompleteExistingDestinationCopy() started.
+✔ Test reportsIncompleteExistingDestinationCopy() passed after 0.003 seconds.
+◇ Test reportsRetainedSourceCopyWhenOldLocationCannotBeRemoved() started.
+✔ Test reportsRetainedSourceCopyWhenOldLocationCannotBeRemoved() passed after 0.009 seconds.
+✔ Suite StorageMigrationSafetyTests passed after 6.517 seconds.
+✔ Test resumesFromCapturedInFlightCheckpointAfterSimulatedCrash() passed after 11.373 seconds.
+◇ Test restartsCleanlyWhenServerIgnoresRange() started.
+✔ Test restartsCleanlyWhenServerIgnoresRange() passed after 1.589 seconds.
+◇ Test restartsFromZeroWhenServerRejectsRange() started.
+✔ Test restartsFromZeroWhenServerRejectsRange() passed after 1.573 seconds.
+◇ Test retriesServiceUnavailableWithRetryAfter() started.
+✔ Test retriesServiceUnavailableWithRetryAfter() passed after 2.695 seconds.
+◇ Test retriesTooManyRequestsWithRetryAfter() started.
+✔ Test retriesTooManyRequestsWithRetryAfter() passed after 2.665 seconds.
+◇ Test classifiesRetryableFailures() started.
+✔ Test classifiesRetryableFailures() passed after 0.001 seconds.
+◇ Test mapsDiskFullFailuresToActionableErrors() started.
+✔ Test mapsDiskFullFailuresToActionableErrors() passed after 0.001 seconds.
+◇ Test rejectsHTMLBodyReturnedWithOKStatus() started.
+✔ Test rejectsHTMLBodyReturnedWithOKStatus() passed after 0.048 seconds.
+◇ Test checksumMismatchPreservesPartialAndAllowsReverify() started.
+✔ Test checksumMismatchPreservesPartialAndAllowsReverify() passed after 0.003 seconds.
+◇ Test installRenamesInPlaceOnTheSameVolumeWithoutExtraSpace() started.
+✔ Test installRenamesInPlaceOnTheSameVolumeWithoutExtraSpace() passed after 0.001 seconds.
+◇ Test installCopiesAcrossVolumesAndNeverMovesTheSource() started.
+✔ Test installCopiesAcrossVolumesAndNeverMovesTheSource() passed after 0.001 seconds.
+◇ Test obsoleteInstallingNameIsNotAdoptedOrDeleted() started.
+✔ Test obsoleteInstallingNameIsNotAdoptedOrDeleted() passed after 0.001 seconds.
+◇ Test resolvesDestinationVolumeThroughSymlinks() started.
+✔ Test resolvesDestinationVolumeThroughSymlinks() passed after 0.021 seconds.
+◇ Test verifiesInstalledArtifactsByDigest() started.
+✔ Test verifiesInstalledArtifactsByDigest() passed after 0.001 seconds.
+◇ Test refusesNonArm64Machines() started.
+✔ Test refusesNonArm64Machines() passed after 0.001 seconds.
+◇ Test refusesLowMemoryMachines() started.
+✔ Test refusesLowMemoryMachines() passed after 0.001 seconds.
+◇ Test warnsOnMarginalMemoryAndAcceptsComfortableMachines() started.
+✔ Test warnsOnMarginalMemoryAndAcceptsComfortableMachines() passed after 0.001 seconds.
+◇ Test currentMachineSnapshotIsPopulated() started.
+✔ Test currentMachineSnapshotIsPopulated() passed after 0.001 seconds.
+◇ Test boundsRetriesAgainstAPermanentServiceUnavailableEndpoint() started.
+✔ Test boundsRetriesAgainstAPermanentServiceUnavailableEndpoint() passed after 5.248 seconds.
+◇ Test boundsRetriesWhenEveryResponseIsTruncated() started.
+✔ Test boundsRetriesWhenEveryResponseIsTruncated() passed after 0.057 seconds.
+◇ Test boundsAnAttemptAgainstAStalledEndpoint() started.
+✔ Test boundsAnAttemptAgainstAStalledEndpoint() passed after 6.370 seconds.
+◇ Test completesASlowButProgressingTransfer() started.
+✔ Test completesASlowButProgressingTransfer() passed after 3.570 seconds.
+◇ Test stallBoundToleratesASlowLinkWithoutLettingTheOfflineWaitGrow() started.
+✔ Test stallBoundToleratesASlowLinkWithoutLettingTheOfflineWaitGrow() passed after 0.001 seconds.
+◇ Test offlineAndHardFailuresGetDifferentRetryBudgets() started.
+✔ Test offlineAndHardFailuresGetDifferentRetryBudgets() passed after 0.001 seconds.
+◇ Test clampsRetryAfterIntoABand() started.
+✔ Test clampsRetryAfterIntoABand() passed after 0.002 seconds.
+◇ Test resumeRestartsWhenTheRemoteObjectChanged() started.
+✔ Test resumeRestartsWhenTheRemoteObjectChanged() passed after 1.993 seconds.
+◇ Test resumeWithoutAStoredValidatorRestartsFromZeroInsteadOfSplicing() started.
+✔ Test resumeWithoutAStoredValidatorRestartsFromZeroInsteadOfSplicing() passed after 1.955 seconds.
+◇ Test crashResumeRestartsWhenTheRemoteObjectChanged() started.
+✔ Test crashResumeRestartsWhenTheRemoteObjectChanged() passed after 2.001 seconds.
+◇ Test rejectsWeakETagsWithoutInventingAStrongValidator() started.
+✔ Test rejectsWeakETagsWithoutInventingAStrongValidator() passed after 0.001 seconds.
+◇ Test refusesA206ThatCarriesNoValidatorToCompareAgainst() started.
+----------------------------------------
+Exception occurred during processing of request from ('127.0.0.1', 55410)
+Traceback (most recent call last):
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 316, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 347, in process_request
+    self.finish_request(request, client_address)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 360, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socketserver.py", line 747, in __init__
+    self.handle()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 436, in handle
+    self.handle_one_request()
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/server.py", line 402, in handle_one_request
+    self.raw_requestline = self.rfile.readline(65537)
+  File "/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+ConnectionResetError: [Errno 54] Connection reset by peer
+----------------------------------------
+✔ Test refusesA206ThatCarriesNoValidatorToCompareAgainst() passed after 1.594 seconds.
+◇ Test retryKeepsThePreservedDownloadUntilExplicitlyConfirmed() started.
+✔ Test retryKeepsThePreservedDownloadUntilExplicitlyConfirmed() passed after 0.047 seconds.
+◇ Test mapsProxyAndCDNFailuresToLocalizedMessages() started.
+✔ Test mapsProxyAndCDNFailuresToLocalizedMessages() passed after 0.001 seconds.
+◇ Test redirectFailuresAreClassifiedWithoutDiscardingThePartial() started.
+✔ Test redirectFailuresAreClassifiedWithoutDiscardingThePartial() passed after 0.001 seconds.
+◇ Test theDeletionSitePreservesThePartialForTransportFailures() started.
+✔ Test theDeletionSitePreservesThePartialForTransportFailures() passed after 0.001 seconds.
+◇ Test memoryAssessmentWarnsAboutRunnableMachinesAndRefusesTheRest() started.
+✔ Test memoryAssessmentWarnsAboutRunnableMachinesAndRefusesTheRest() passed after 0.001 seconds.
+◇ Test failedRenameSwapKeepsTheDownloadAndRestoresThePreviousFile() started.
+✔ Test failedRenameSwapKeepsTheDownloadAndRestoresThePreviousFile() passed after 0.001 seconds.
+◇ Test sweepRestoresTheFileASwapLeftInTheBackup() started.
+✔ Test sweepRestoresTheFileASwapLeftInTheBackup() passed after 0.001 seconds.
+◇ Test sweepDropsTheBackupLeftAfterASuccessfulSwap() started.
+✔ Test sweepDropsTheBackupLeftAfterASuccessfulSwap() passed after 0.001 seconds.
+◇ Test readsRealCapacityFromARealNonBootVolume() started.
+✔ Test readsRealCapacityFromARealNonBootVolume() passed after 1.883 seconds.
+◇ Test installsToARealNonBootVolumeWithAmpleSpace() started.
+✔ Test translationTablesContainNoDeadKeys() passed after 46.351 seconds.
+✔ Suite LocalizationTests passed after 46.352 seconds.
+✔ Test installsToARealNonBootVolumeWithAmpleSpace() passed after 1.877 seconds.
+◇ Test refusesToInstallWhenTheVolumeCapacityCannotBeRead() started.
+✔ Test refusesToInstallWhenTheVolumeCapacityCannotBeRead() passed after 0.001 seconds.
+◇ Test sweepKeepsThePreviousFileWhenTheRestoreFails() started.
+✔ Test sweepKeepsThePreviousFileWhenTheRestoreFails() passed after 0.002 seconds.
+◇ Test discardingKnownBadPreservedBytesDoesNotHashThemFirst() started.
+✔ Test discardingKnownBadPreservedBytesDoesNotHashThemFirst() passed after 0.048 seconds.
+◇ Test repairedPreservedBytesAreHashedExactlyOnce() started.
+✔ Test repairedPreservedBytesAreHashedExactlyOnce() passed after 0.001 seconds.
+◇ Test inFlightCheckpointWriteFailureAbortsTheDownload() started.
+✔ Test inFlightCheckpointWriteFailureAbortsTheDownload() passed after 2.129 seconds.
+✔ Suite InstallerRobustnessTests passed after 48.773 seconds.
+✔ Test run with 261 tests in 26 suites passed after 48.774 seconds.

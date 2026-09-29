@@ -1,0 +1,18 @@
+#!/bin/sh
+# Version floor enforced by assert_version_not_regressed_locally() in
+# scripts/build-app.sh.
+#
+# The guard refuses to build a version lower than this baseline to prevent
+# accidental downgrades. The baseline is tracked independently of dist/, which
+# is gitignored and may contain artifacts from another build or checkout.
+#
+# Update this file in the same change whenever the minimum supported version
+# is intentionally lowered.
+# Releasing does not require touching this file; a version at or above the
+# floor always builds. For a throwaway local build that needs to go below it,
+# use ALLOW_VERSION_REGRESSION=1.
+#
+# Variable names are deliberately distinct from scripts/version.sh so sourcing
+# this file can never overwrite the version being built.
+BASELINE_MARKETING_VERSION="0.9.0"
+BASELINE_BUILD_NUMBER="26"

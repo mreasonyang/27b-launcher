@@ -1,0 +1,30 @@
+Final regression: 2026-09-29
+Command: swift test --scratch-path /tmp/launcher27b-onboarding-build
+
+Test Suite 'All tests' passed at 2026-09-29 23:52:56.490.
+✔ Suite AblationStrengthTests passed after 0.067 seconds.
+✔ Suite ServerArgumentsBuilderTests passed after 0.067 seconds.
+✔ Suite LlamaMetricsParserTests passed after 0.067 seconds.
+✔ Suite InstallationInspectorTests passed after 0.068 seconds.
+✔ Suite InstallationCatalogTests passed after 0.067 seconds.
+✔ Suite FileChecksumTests passed after 0.068 seconds.
+✔ Suite LauncherConfigTests passed after 0.068 seconds.
+✔ Suite ServiceStatusTests passed after 0.067 seconds.
+✔ Suite StorageMigrationRecoveryTests passed after 0.082 seconds.
+✔ Suite ServiceControllerTests passed after 0.089 seconds.
+✔ Suite ModelStorageManagerTests passed after 0.121 seconds.
+✔ Suite LauncherWindowTests passed after 0.414 seconds.
+✔ Suite AppPreferencesTests passed after 0.470 seconds.
+✔ Suite ViewModelWiringTests passed after 0.722 seconds.
+✔ Suite ErrorLocalizationTests passed after 0.833 seconds.
+✔ Suite UIStatePresentationTests passed after 1.160 seconds.
+✔ Suite CurrentDesignRegressionTests passed after 1.170 seconds.
+✔ Suite ServiceControllerLifecycleTests passed after 1.717 seconds.
+✔ Suite ServerSecurityTests passed after 1.762 seconds.
+✔ Suite OnboardingTests passed after 1.995 seconds.
+✔ Suite ArtifactDownloaderIntegrationTests passed after 3.425 seconds.
+✔ Suite StorageMigrationSafetyTests passed after 5.510 seconds.
+✔ Suite DownloadWatchdogSeamTests passed after 6.341 seconds.
+✔ Suite LocalizationTests passed after 51.583 seconds.
+✔ Suite InstallerRobustnessTests passed after 58.154 seconds.
+✔ Test run with 253 tests in 25 suites passed after 58.155 seconds.

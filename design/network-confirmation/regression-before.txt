@@ -1,0 +1,66 @@
+Building for debugging...
+[1 / 10]
+[2 / 5] Launcher27BTests-product
+[4 / 7] Launcher27BTests-product
+[5 / 8] Launcher27BTests-product
+[11 / 13] Launcher27BTests-product
+Build complete! (5.55 sec)
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+◇ Suite ServiceControllerLifecycleTests started.
+◇ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+◇ Test case passing 2 arguments running → false, dismissBeforeAction → false to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → false, dismissBeforeAction → false at ServiceControllerLifecycleTests.swift:1577:9: Expectation failed: controller.bindMode == .allInterfaces
+↳ controller.bindMode == .allInterfaces → false
+↳   controller.bindMode → .loopback
+◇ Test case passing 2 arguments running → false, dismissBeforeAction → true to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → false, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1577:9: Expectation failed: controller.bindMode == .allInterfaces
+↳ controller.bindMode == .allInterfaces → false
+↳   controller.bindMode → .loopback
+◇ Test case passing 2 arguments running → true, dismissBeforeAction → false to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → false at ServiceControllerLifecycleTests.swift:1577:9: Expectation failed: controller.bindMode == .allInterfaces
+↳ controller.bindMode == .allInterfaces → false
+↳   controller.bindMode → .loopback
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → false at ServiceControllerLifecycleTests.swift:1581:9: Expectation failed: process.startCallCount == (running ? 2 : 0)
+↳ process.startCallCount == (running ? 2 : 0) → false
+↳   process.startCallCount → 1
+↳   (running ? 2 : 0) → 2
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → false at ServiceControllerLifecycleTests.swift:1582:9: Expectation failed: process.stopCallCount == (running ? 1 : 0)
+↳ process.stopCallCount == (running ? 1 : 0) → false
+↳   process.stopCallCount → 0
+↳   (running ? 1 : 0) → 1
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → false at ServiceControllerLifecycleTests.swift:1583:22: Expectation failed: controller.effectiveBindMode == .allInterfaces
+↳ controller.effectiveBindMode == .allInterfaces → false
+↳   controller.effectiveBindMode → .loopback
+↳     some → .loopback
+↳     some → .allInterfaces
+◇ Test case passing 2 arguments running → true, dismissBeforeAction → true to lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) started.
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1577:9: Expectation failed: controller.bindMode == .allInterfaces
+↳ controller.bindMode == .allInterfaces → false
+↳   controller.bindMode → .loopback
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1578:9: Expectation failed: defaults.string(forKey: "serverBindMode") == ServerBindMode.allInterfaces.rawValue
+↳ defaults.string(forKey: "serverBindMode") == ServerBindMode.allInterfaces.rawValue → false
+↳   defaults.string(forKey: "serverBindMode") → nil
+↳   ServerBindMode.allInterfaces.rawValue → "allInterfaces"
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1581:9: Expectation failed: process.startCallCount == (running ? 2 : 0)
+↳ process.startCallCount == (running ? 2 : 0) → false
+↳   process.startCallCount → 1
+↳   (running ? 2 : 0) → 2
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1582:9: Expectation failed: process.stopCallCount == (running ? 1 : 0)
+↳ process.stopCallCount == (running ? 1 : 0) → false
+↳   process.stopCallCount → 0
+↳   (running ? 1 : 0) → 1
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) recorded an issue with 2 arguments running → true, dismissBeforeAction → true at ServiceControllerLifecycleTests.swift:1583:22: Expectation failed: controller.effectiveBindMode == .allInterfaces
+↳ controller.effectiveBindMode == .allInterfaces → false
+↳   controller.effectiveBindMode → .loopback
+↳     some → .loopback
+↳     some → .allInterfaces
+✘ Test lanConfirmationSurvivesDialogDismissal(running:dismissBeforeAction:) with 4 test cases failed after 0.044 seconds with 14 issues.
+✘ Suite ServiceControllerLifecycleTests failed after 0.044 seconds with 14 issues.
+↳ /// Serialized because ``quittingTheLauncherLeavesTheServerRunning`` posts the
+↳ /// process-global `NSApplication.willTerminateNotification`, which would fire
+↳ /// the termination observers of any other controller test running in parallel.
+✘ Test run with 1 test in 1 suite failed after 0.044 seconds with 14 issues.
+Note: Some test targets reported failures:
+  - Launcher27BTests (Swift Testing)
