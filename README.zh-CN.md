@@ -12,7 +12,7 @@
 
 [开始使用](#开始使用)
 
-> 本机源码构建使用 ad-hoc 签名，从网络下载的发布包可能被 Gatekeeper 拦截。应用目前不提供自动更新。
+> 正式 Release 安装包采用 Developer ID 签名并通过 Apple 公证。本机源码构建使用 ad-hoc 签名。应用没有内置自动更新，可通过 Homebrew 或新版 DMG 升级。
 
 ## 界面与操作演示
 
@@ -54,7 +54,22 @@
 
 ## 开始使用
 
-### 1. 构建与安装
+### 1. 安装
+
+使用 [Homebrew](https://brew.sh)：
+
+```sh
+brew tap mreasonyang/27b-launcher https://github.com/mreasonyang/27b-launcher
+brew install --cask mreasonyang/27b-launcher/27b-launcher
+open "/Applications/27B Launcher.app"
+```
+
+也可从 [Releases](https://github.com/mreasonyang/27b-launcher/releases/latest) 下载 DMG，
+将 **27B Launcher.app** 拖入 **Applications**。两种方式只安装启动器，首次启动后再下载模型。
+原有 `~/Applications` 源码安装属于另一份应用。升级、卸载和数据保留规则见
+[Homebrew 安装与维护](docs/HOMEBREW.md)。
+
+#### 从源码构建
 
 通过本仓库 GitHub 页面上的 **Code** 按钮克隆仓库，或下载并解压源码。在终端进入源码目录 `27b-launcher`，执行：
 
@@ -111,11 +126,11 @@ open "$HOME/Applications/27B Launcher.app"
 - **用量按进程统计**：服务重启后归零；输入量包含新处理与缓存复用的 Token。监控数据不可用时显示未知状态，不显示为实测的零。
 - **固定配置**：端口 `8080`、上下文 `32768`、推理预算 `2048`，目前没有对应的界面设置。
 - **模块效果仍需评估**：OrcaBonsai 改变拒答行为；能加载不代表回答质量、安全性或完整兼容性已获验证。见[上游兼容说明](docs/THIRD_PARTY.md#compatibility)。
-- **手动更新**：源码升级后重新构建并执行安装脚本。
+- **更新**：执行 `brew update` 和 `brew upgrade --cask mreasonyang/27b-launcher/27b-launcher`，或安装新版 DMG；源码安装仍需重新构建。升级前先停止模型并退出启动器。
 
 ## 验证与文档
 
-[0.10.11 验收记录](docs/ACCEPTANCE.zh-CN.md)汇总了 2026-09-30 的真实界面检查、全新和已有模型两条引导路径，以及 263 项测试结果，并列出仍待人工验收的场景。本机包使用 ad-hoc 签名；这些检查不代表已经公证或在所有支持的 Mac 上验证通过。
+[0.10.11 验收记录](docs/ACCEPTANCE.zh-CN.md)汇总了 2026-09-30 的真实界面检查、全新和已有模型两条引导路径，以及 263 项测试结果，并列出仍待人工验收的场景。本机源码包使用 ad-hoc 签名；正式 Release 由 GitHub Actions 签名并完成公证。这些检查不代表所有支持的 Mac 均已验证。另见 [CI 验证边界](docs/CI-VALIDATION.md)和[发布维护说明](docs/HOMEBREW.md)。
 
 [首次使用行为规范](design/onboarding/PROPOSAL.zh-CN.md)描述当前实现。
 

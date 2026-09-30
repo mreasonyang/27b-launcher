@@ -14,8 +14,9 @@ OrcaBonsai module. Inference runs on your Mac; no cloud account is required.
 
 [Get started](#get-started)
 
-> There is no automatic updater. Source builds use an ad-hoc signature and may be
-> blocked by Gatekeeper on other Macs.
+> Official Release packages are Developer ID signed and notarized by Apple.
+> There is no in-app automatic updater; use Homebrew or install a newer Release.
+> Source builds use an ad-hoc signature.
 
 ## See it in action
 
@@ -66,7 +67,23 @@ contexts can still exhaust memory on supported Macs.
 
 ## Get started
 
-### 1. Build and install
+### 1. Install
+
+With [Homebrew](https://brew.sh):
+
+```sh
+brew tap mreasonyang/27b-launcher https://github.com/mreasonyang/27b-launcher
+brew install --cask mreasonyang/27b-launcher/27b-launcher
+open "/Applications/27B Launcher.app"
+```
+
+Alternatively, download the DMG from [Releases](https://github.com/mreasonyang/27b-launcher/releases/latest)
+and drag **27B Launcher.app** into **Applications**. Both methods install only the
+launcher; model setup happens on first launch. Existing source installations in
+`~/Applications` are separate. See [Homebrew installation and maintenance](docs/HOMEBREW.md)
+for upgrade, uninstall and data retention details.
+
+#### Build from source
 
 Clone this repository using its GitHub **Code** menu, or download and extract its
 source archive. In Terminal, enter the resulting `27b-launcher` directory, then:
@@ -165,15 +182,18 @@ for paths, network boundaries, and uninstall behavior.
 - **Model behavior is experimental:** OrcaBonsai changes refusal behavior.
   Loading successfully does not establish answer quality or safety;
   see the [upstream compatibility note](docs/THIRD_PARTY.md#compatibility).
-- **Updates are manual:** rebuild and rerun the installer for a source upgrade.
+- **Updates:** run `brew update` and `brew upgrade --cask mreasonyang/27b-launcher/27b-launcher`,
+  install a newer DMG, or rebuild a source installation. Stop the model and quit
+  the launcher before upgrading.
 
 ## Verification and documentation
 
 The [0.10.11 acceptance record (中文)](docs/ACCEPTANCE.zh-CN.md) summarizes real
 UI checks, fresh and existing model setup, and the 263-test regression run on
 2026-09-30. It also lists scenarios still awaiting manual acceptance. Local
-packages are ad-hoc signed; these checks do not establish notarization or
-compatibility with every supported Mac.
+packages are ad-hoc signed; official Release packages are signed and notarized
+by GitHub Actions. Neither establishes compatibility with every supported Mac.
+See [CI scope](docs/CI-VALIDATION.md) and [release maintenance](docs/HOMEBREW.md).
 
 The [onboarding behavior specification (中文)](design/onboarding/PROPOSAL.zh-CN.md)
 describes the implemented flow.

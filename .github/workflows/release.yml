@@ -148,6 +148,16 @@ jobs:
           spctl --assess --type execute -vv "$APP"
           shasum -a 256 dist/*.dmg dist/*.zip
 
+      - name: Generate Homebrew Cask from the final DMG
+        run: |
+          VERSION="$(./scripts/version.sh marketing)"
+          if [[ "$GITHUB_REF" == refs/tags/* ]]; then
+            test "$GITHUB_REF_NAME" = "v$VERSION"
+          fi
+          python3 scripts/update-homebrew-cask.py --version "$VERSION" \
+            --dmg "dist/27B-Launcher-$VERSION-macOS-arm64.dmg" \
+            --output .build/homebrew/27b-launcher.rb
+
       - name: Upload release artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -165,9 +175,31 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG="${GITHUB_REF_NAME}"
+          if gh release view "$TAG" --json isDraft --jq '.isDraft' > "$RUNNER_TEMP/release-is-draft" 2>/dev/null; then
+            if grep -qx false "$RUNNER_TEMP/release-is-draft"; then
+              echo "::error::Release is already public; use a new version instead of replacing checksum-pinned assets."
+              exit 1
+            fi
+          fi
           gh release view "$TAG" >/dev/null 2>&1 \
-            || gh release create "$TAG" --title "27B Launcher $TAG" --generate-notes
+            || gh release create "$TAG" --draft --verify-tag --title "27B Launcher $TAG" --generate-notes
           gh release upload "$TAG" dist/*.dmg dist/*.zip dist/*.sha256 --clobber
+          gh release edit "$TAG" --draft=false
+
+      - name: Update the same-repository Homebrew tap
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          git fetch origin main
+          git switch main
+          mkdir -p Casks
+          cp .build/homebrew/27b-launcher.rb Casks/27b-launcher.rb
+          git add Casks/27b-launcher.rb
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "Update Homebrew Cask for $GITHUB_REF_NAME"
+            git push origin HEAD:main
+          fi
 
       - name: Clean up signing credentials
         if: always()

@@ -17,13 +17,13 @@
 # Format: MAJOR[.MINOR[.PATCH]] - digits and dots only.
 #
 # Current human-facing product version.
-MARKETING_VERSION="0.10.11"
+MARKETING_VERSION="0.10.12"
 
 # Machine-facing build number (CFBundleVersion). Must STRICTLY INCREASE every
 # time a build is handed to anyone, including ad-hoc local builds that later get
 # notarized. See assert_version_advances_past_last_release() in
 # scripts/build-app.sh; the local downgrade floor is scripts/version-baseline.
-BUILD_NUMBER="40"
+BUILD_NUMBER="41"
 
 # Minimum supported macOS version. Must stay in sync with
 #   - Package.swift  ->  platforms: [.macOS(.v14)]
