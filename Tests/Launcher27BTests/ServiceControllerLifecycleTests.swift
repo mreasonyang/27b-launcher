@@ -1069,6 +1069,7 @@ struct ServiceControllerLifecycleTests {
             defaults: defaults,
             healthProbe: { url in await probe.probe(url) },
             loginItemStatus: { .notRegistered },
+            hardwareRequirements: .init(architecture: "arm64", physicalMemoryBytes: 32 * 1_073_741_824),
             installationRunner: { _, _ in
                 try await gate.wait()
             },
@@ -1129,6 +1130,7 @@ struct ServiceControllerLifecycleTests {
             defaults: defaults,
             healthProbe: { _ in false },
             loginItemStatus: { .notRegistered },
+            hardwareRequirements: .init(architecture: "arm64", physicalMemoryBytes: 32 * 1_073_741_824),
             installationRunner: { _, _ in
                 try await gate.wait()
             }

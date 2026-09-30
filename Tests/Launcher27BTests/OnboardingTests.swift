@@ -496,7 +496,11 @@ struct OnboardingTests {
         }
     }
 
-    @Test(arguments: [false, true], [false, true])
+    // Hosted macOS runners constrain window frames to a virtual desktop. Keep
+    // these real-window sizing assertions as an interactive local acceptance gate.
+    @Test(.enabled(if: ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] != "true",
+                   "Requires an interactive macOS desktop; run locally before release"),
+          arguments: [false, true], [false, true])
     func nativeWindowReclaimsSpaceAfterUnownedServiceChoice(stop: Bool, initiallyOversized: Bool) async throws {
         let f = try fixture(); defer { f.clean() }
         f.prefs.language = .simplifiedChinese

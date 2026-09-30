@@ -29,6 +29,7 @@ jobs:
           xcodebuild -version
           swift --version
           xcode-select -p
+          sysctl -n hw.memsize
 
       - name: Lint plists and shell scripts
         run: |

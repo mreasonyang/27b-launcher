@@ -1034,19 +1034,23 @@ struct ServerSecurityTests {
     /// a 0.2 s limit.
     @Test
     func thePortProbeDeadlineReturnsWithoutWaitingForAStalledChild() async throws {
+        let hostedCI = ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] == "true"
+        let report = ServerPortListenerFinder.PortProbeDeadlineReport()
         let clock = ContinuousClock()
         let start = clock.now
 
         let data = await ServerPortListenerFinder.output(
             of: URL(filePath: "/bin/sleep"),
-            arguments: ["5"],
-            timeout: .milliseconds(200)
+            arguments: [hostedCI ? "30" : "5"],
+            timeout: .milliseconds(200),
+            report: report
         )
         let elapsed = clock.now - start
 
         #expect(data == nil)
+        #expect(report.outcome == .deadlineElapsed)
         #expect(
-            elapsed < .seconds(2),
+            elapsed < .seconds(hostedCI ? 10 : 2),
             "the probe waited \(elapsed) instead of its 0.2 s deadline"
         )
     }
