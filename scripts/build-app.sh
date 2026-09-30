@@ -377,6 +377,7 @@ resolve_signing_mode
 cd "$PROJECT_DIR"
 "$PROJECT_DIR/scripts/build-icon.sh" "$ICON_FILE" >/dev/null
 swift build -c release
+BUILD_PRODUCTS="$(swift build -c release --show-bin-path)"
 
 if [ -e "$APP_DIR" ]; then
     case "$APP_DIR" in
@@ -386,14 +387,14 @@ if [ -e "$APP_DIR" ]; then
 fi
 
 mkdir -p "$APP_DIR/Contents/MacOS" "$APP_DIR/Contents/Resources"
-cp "$PROJECT_DIR/.build/release/Launcher27B" "$APP_DIR/Contents/MacOS/Launcher27B"
+cp "$BUILD_PRODUCTS/Launcher27B" "$APP_DIR/Contents/MacOS/Launcher27B"
 cp "$PLIST_TEMPLATE" "$APP_DIR/Contents/Info.plist"
 stamp_version_into_plist "$APP_DIR/Contents/Info.plist"
 cp "$ICON_FILE" "$APP_DIR/Contents/Resources/AppIcon.icns"
 cp "$PROJECT_DIR/Resources/webui-config.json" "$APP_DIR/Contents/Resources/webui-config.json"
 cp "$PROJECT_DIR/Resources/PrivacyInfo.xcprivacy" "$APP_DIR/Contents/Resources/PrivacyInfo.xcprivacy"
-RESOURCE_BUNDLE="$(find "$PROJECT_DIR/.build" -path '*/Release/Launcher27B_Launcher27B.bundle' -type d -print -quit)"
-[ -n "$RESOURCE_BUNDLE" ] || die "SwiftPM localization bundle missing"
+RESOURCE_BUNDLE="$BUILD_PRODUCTS/Launcher27B_Launcher27B.bundle"
+[ -d "$RESOURCE_BUNDLE" ] || die "SwiftPM localization bundle missing: $RESOURCE_BUNDLE"
 ditto "$RESOURCE_BUNDLE" "$APP_DIR/Contents/Resources/Launcher27B_Launcher27B.bundle"
 
 
