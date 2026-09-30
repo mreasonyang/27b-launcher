@@ -61,7 +61,8 @@ jobs:
           plutil -extract CFBundleVersion raw -o - "$APP/Contents/Info.plist"
           codesign --verify --deep --strict --verbose=2 "$APP"
           for localization in en zh-Hans zh-Hant es; do
-            test -d "$APP/Contents/Resources/Launcher27B_Launcher27B.bundle/$localization.lproj"
+            find "$APP/Contents/Resources/Launcher27B_Launcher27B.bundle" \
+              -type d -iname "$localization.lproj" | grep -q .
           done
 
       - name: Package release artifacts (unsigned)

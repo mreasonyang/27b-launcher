@@ -56,10 +56,12 @@ final class AppPreferences {
     }
 
     func localized(_ key: String) -> String {
-        guard let localizationURL = Bundle.module.url(
-            forResource: language.rawValue,
-            withExtension: "lproj"
-        ), let localizationBundle = Bundle(url: localizationURL) else {
+        // SwiftPM may normalize localization directory names to lowercase.
+        guard let localization = Bundle.module.localizations.first(where: {
+            $0.caseInsensitiveCompare(language.rawValue) == .orderedSame
+        }), let resourceURL = Bundle.module.resourceURL,
+        let localizationBundle = Bundle(url: resourceURL
+            .appendingPathComponent("\(localization).lproj")) else {
             preconditionFailure("Missing localization bundle: \(language.rawValue)")
         }
 
