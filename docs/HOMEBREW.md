@@ -53,3 +53,24 @@ exists outside Homebrew, resolve that conflict before installing; do not use
 The bot's push does not trigger another push-based Actions run. The tag's source
 commit is covered by CI before release; the generated cask is validated against
 the public asset after publication. Keep the default branch named `main`.
+
+## Verified release: 0.10.12 (2026-10-01)
+
+- [Source CI](https://github.com/mreasonyang/27b-launcher/actions/runs/36766941077)
+  completed successfully before the tag was pushed.
+- [Release workflow](https://github.com/mreasonyang/27b-launcher/actions/runs/36767708780)
+  signed, notarized and stapled the app and DMG, published the assets and committed
+  the generated cask to `main`.
+- DMG SHA-256: `848d5dc5b598b594ce168cb4515f99aee3f235d51ede68b75e54b954d6ead33d`.
+  Homebrew fetched the public Release asset and verified that checksum.
+- Homebrew installed the cask into an isolated `--appdir`. The installed app
+  reported 0.10.12, passed strict/deep signature verification, staple validation
+  and Gatekeeper assessment (`Notarized Developer ID`).
+- Normal Homebrew uninstall removed only the test installation; the pre-existing
+  `~/Applications/27B Launcher.app` and `~/Library/Application Support/Bonsai2`
+  directories remained present.
+
+This checks download, installation, signing and uninstall on the current Mac.
+It does not establish another-Mac installation, a full model download, or an
+upgrade between two Homebrew-managed versions. Existing app behavior acceptance
+is recorded separately in [ACCEPTANCE.zh-CN.md](ACCEPTANCE.zh-CN.md).

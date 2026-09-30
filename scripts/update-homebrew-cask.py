@@ -21,7 +21,7 @@ def render(version: str, digest: str) -> str:
   homepage "https://github.com/mreasonyang/27b-launcher"
 
   depends_on arch: :arm64
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "27B Launcher.app"
 end
