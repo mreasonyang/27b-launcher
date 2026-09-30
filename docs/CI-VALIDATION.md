@@ -11,6 +11,10 @@ The hosted CI suite is not a substitute for interactive macOS acceptance.
   `deadlineElapsed`. Locally it must return within 2 seconds before a 5-second
   child exits. On GitHub it has a 10-second scheduling allowance before a
   30-second child exits. Waiting for the child still fails the check.
+- The long-session log rotation fixture writes the same 60 KB in one `cat`
+  invocation instead of launching 150 child processes. It keeps the session open
+  and checks the rotated file, size cap and absence of sparse holes. GitHub gets
+  20 seconds to observe rotation; local acceptance retains its 6-second limit.
 - `nativeWindowReclaimsSpaceAfterUnownedServiceChoice` is disabled only when
   `GITHUB_ACTIONS=true`. Hosted virtual desktop geometry cannot establish the
   interactive window acceptance contract. Other onboarding, layout and window
@@ -36,3 +40,8 @@ they do not establish installed-app or another-Mac acceptance.
 The hosted run previously capped expanded windows at 674 points. Screen geometry
 is a likely explanation for the difference, not a proven macOS-version diagnosis.
 Runner RAM is now printed in CI to make its hardware assumptions auditable.
+
+The subsequent hosted run confirmed 7 GiB RAM and passed the original failing
+checks. It exposed a log-rotation fixture timing failure under parallel load;
+that check passed alone locally in 1.053 seconds before the fixture adjustment.
+After the first CI adjustments, all 263 local tests passed again in 48.031 seconds.

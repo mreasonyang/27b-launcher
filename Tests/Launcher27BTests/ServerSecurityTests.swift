@@ -388,19 +388,16 @@ struct ServerSecurityTests {
     /// its log must still be capped.
     @Test
     func logRotationFiresDuringASingleLongSession() async throws {
+        let hostedCI = ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] == "true"
         let root = try makeScratchDirectory()
         defer { try? FileManager.default.removeItem(at: root) }
 
         let payload = root.appending(path: "payload.txt")
-        try Data(repeating: 0x41, count: 400).write(to: payload)
+        try Data(repeating: 0x41, count: 60_000).write(to: payload)
         let binary = try makeScriptRuntime(inside: root, body: """
         #!/bin/sh
-        i=0
-        while [ $i -lt 150 ]; do
-          cat "\(payload.path)" >&2
-          i=$((i + 1))
-        done
-        sleep 10
+        cat "\(payload.path)" >&2
+        sleep \(hostedCI ? 30 : 10)
         """)
         try makeRuntimeSupportFiles(inside: root)
 
@@ -422,7 +419,7 @@ struct ServerSecurityTests {
             for: config.standardErrorURL,
             generation: 1
         )
-        let deadline = ContinuousClock().now.advanced(by: .seconds(6))
+        let deadline = ContinuousClock().now.advanced(by: .seconds(hostedCI ? 20 : 6))
         while !FileManager.default.fileExists(atPath: rotated.path),
               ContinuousClock().now < deadline {
             try await Task.sleep(for: .milliseconds(50))
