@@ -81,10 +81,11 @@ jobs:
           CERT_P12_BASE64: ${{ secrets.MACOS_CERTIFICATE_P12_BASE64 }}
           CERT_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
         run: |
+          umask 077
           KEYCHAIN="$RUNNER_TEMP/build.keychain-db"
           KEYCHAIN_PASSWORD="$(openssl rand -hex 24)"
+          echo "::add-mask::$KEYCHAIN_PASSWORD"
           echo "KEYCHAIN=$KEYCHAIN" >> "$GITHUB_ENV"
-          echo "KEYCHAIN_PASSWORD=$KEYCHAIN_PASSWORD" >> "$GITHUB_ENV"
 
           security create-keychain -p "$KEYCHAIN_PASSWORD" "$KEYCHAIN"
           security set-keychain-settings -lut 3600 "$KEYCHAIN"
@@ -118,6 +119,7 @@ jobs:
           AC_TEAM_ID: ${{ secrets.AC_TEAM_ID }}
           AC_PASSWORD: ${{ secrets.AC_PASSWORD }}
         run: |
+          umask 077
           if [ -n "$API_KEY_P8_BASE64" ]; then
             mkdir -p "$RUNNER_TEMP/notary"
             echo "$API_KEY_P8_BASE64" | openssl base64 -d -A -out "$RUNNER_TEMP/notary/AuthKey.p8"
@@ -166,3 +168,9 @@ jobs:
           gh release view "$TAG" >/dev/null 2>&1 \
             || gh release create "$TAG" --title "27B Launcher $TAG" --generate-notes
           gh release upload "$TAG" dist/*.dmg dist/*.zip dist/*.sha256 --clobber
+
+      - name: Clean up signing credentials
+        if: always()
+        run: |
+          security delete-keychain "$RUNNER_TEMP/build.keychain-db" 2>/dev/null || true
+          rm -f "$RUNNER_TEMP/cert.p12" "$RUNNER_TEMP/notary/AuthKey.p8"
