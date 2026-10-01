@@ -396,6 +396,9 @@ cp "$PROJECT_DIR/Resources/PrivacyInfo.xcprivacy" "$APP_DIR/Contents/Resources/P
 RESOURCE_BUNDLE="$BUILD_PRODUCTS/Launcher27B_Launcher27B.bundle"
 [ -d "$RESOURCE_BUNDLE" ] || die "SwiftPM localization bundle missing: $RESOURCE_BUNDLE"
 ditto "$RESOURCE_BUNDLE" "$APP_DIR/Contents/Resources/Launcher27B_Launcher27B.bundle"
+# SwiftPM's command-line accessor resolves resources beside Bundle.main.bundleURL.
+# Keep the canonical macOS resource location and provide the expected in-bundle alias.
+ln -s "Contents/Resources/Launcher27B_Launcher27B.bundle" "$APP_DIR/Launcher27B_Launcher27B.bundle"
 
 
 # Apple requires the privacy manifest to be inside the bundle, not only in the
