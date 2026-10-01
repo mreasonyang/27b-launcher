@@ -1,6 +1,6 @@
 cask "27b-launcher" do
-  version "0.10.12"
-  sha256 "848d5dc5b598b594ce168cb4515f99aee3f235d51ede68b75e54b954d6ead33d"
+  version "0.10.13"
+  sha256 "ec47256bcbdc86d3dddd50c2d5e4fb0499e7738fee3017e957b249026aff6508"
 
   url "https://github.com/mreasonyang/27b-launcher/releases/download/v#{version}/27B-Launcher-#{version}-macOS-arm64.dmg"
   name "27B Launcher"
