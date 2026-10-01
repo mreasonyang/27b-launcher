@@ -1,5 +1,8 @@
 # 27B Launcher 0.10.12
 
+**Superseded by 0.10.13:** actual installed-app testing found a localization-resource
+startup crash in this version. Please install or upgrade to 0.10.13 or later.
+
 First public Developer ID signed and Apple-notarized release, with Homebrew
 installation support. Requires Apple Silicon and macOS 14 or later. Model setup
 requires at least 16 GiB RAM; 32 GiB or more is recommended.
