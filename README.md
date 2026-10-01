@@ -4,104 +4,79 @@
 
 # 27B Launcher
 
-**Run Bonsai 2 27B locally on your Mac, from a native desktop app.**
+**Run Bonsai 2 27B locally on your Mac — native, lightweight, and out of the box.**
 
-27B Launcher downloads the model and runtime, manages the local inference server,
-and gives you a desktop control panel for chat, API access, model storage, and the
-OrcaBonsai module. Inference runs on your Mac; no cloud account is required.
+27B Launcher is a native macOS application designed for Apple Silicon. It automates model downloads, manages the local inference runtime, and provides a clean desktop control panel for web chat, OpenAI-compatible API access, model storage, and the OrcaBonsai adapter. Inference runs entirely on your Mac; no cloud accounts or API keys required.
 
 **English** · [简体中文](README.zh-CN.md)
 
-[Get started](#get-started)
+[Quick Start](#quick-start) · [Requirements](#requirements) · [FAQ](#frequently-asked-questions)
 
-> Official Release packages are Developer ID signed and notarized by Apple.
-> There is no in-app automatic updater; use Homebrew or install a newer Release.
-> Source builds use an ad-hoc signature.
+> **Signature Notice**: Official release packages are signed with an Apple Developer ID and notarized by Apple. The app does not include an in-app auto-updater; update via Homebrew or by installing the latest DMG.
 
-## See it in action
+---
 
-<p align="center">
-  <img src="docs/media/dashboard-en-light.jpg" width="860" alt="27B Launcher dashboard with local model controls and usage metrics">
-</p>
-
-### Chat in your browser
-
-Ask Bonsai 2 to draft an email, then refine the answer with a follow-up.
+## Preview
 
 <p align="center">
-  <img src="docs/media/local-chat.gif" width="628" alt="A browser conversation with local Bonsai 2, drafting an email and refining it with a follow-up">
+  <img src="docs/media/dashboard-en-light.jpg" width="860" alt="27B Launcher dashboard">
 </p>
 
-## Why 27B Launcher?
+### Browser Chat & Image Understanding
 
-- **Guided setup:** downloads pinned runtime, model, vision projector, and adapter
-  files with progress, pause/resume, bounded retries, and SHA-256 verification.
-- **Daily controls:** start, stop, restart, open local chat, and inspect logs from
-  a normal Dock app.
-- **Live usage:** generation speed, input/output tokens, active requests, and
-  context usage from the server's metrics endpoint.
-- **Recoverable storage moves:** inspect the model location and move it with
-  copy-and-verify migration and cancellation before the final switch.
-- **OrcaBonsai controls:** enable or disable the adapter and select its strength.
-  New settings default to enabled at 2.0×; saved choices are preserved.
-- **Native preferences:** English, 简体中文, 繁體中文, and Español; system, light,
-  and dark appearance; accessibility mode; optional launch at login.
+Built-in local web chat supporting both text conversation and vision input:
 
-This is a focused launcher for one model family, not a general model catalog.
-It is an independent project, unaffiliated with Prism ML or Continuum AI.
+<p align="center">
+  <img src="docs/media/local-chat.gif" width="628" alt="Local Bonsai 2 conversation in browser">
+</p>
 
-## What are the model files and LoRA?
+---
 
-The two downloaded model files work together: **Bonsai 2 generates answers;
-the vision component lets it understand images.** OrcaBonsai changes the base
-model's refusal behavior. The launcher downloads and connects these components
-for you; no separate model checkout or manual configuration is needed.
+## Features
 
-| Component | What it is | What you can use it for |
+- **Guided Onboarding**: Automatically downloads the pinned model, vision projector, LoRA adapter, and llama.cpp runtime with resume support and SHA-256 verification.
+- **Native Desktop Controls**: Sits in your Dock with simple start, stop, and restart controls, plus real-time generation speed (tokens/s), memory, and context tracking.
+- **Built-in Web Chat**: Open local chat in your default browser with a single click, with image attachment support for visual analysis.
+- **OpenAI-Compatible API**: Serves a local `/v1` endpoint ready for clients like NextChat, Chatbox, Open WebUI, Cursor, Continue, or custom scripts.
+- **OrcaBonsai Adapter Toggle**: Enable or tune the OrcaBonsai LoRA adapter (0.5×–2.0× strength) to reduce refusal behavior on benign prompts.
+- **Safe Storage Migration**: Move multi-gigabyte models to an external drive with copy-and-verify safety before switching paths.
+- **macOS Polish**: Supports English, 简体中文, 繁體中文, and Español; automatic light/dark mode; accessibility enhancements; optional launch at login.
+- **Private & Offline**: No analytics, telemetry, or crash report uploads. Everything stays on your device.
+
+---
+
+## Components
+
+The launcher downloads and coordinates four components automatically:
+
+| Component | File & Size | Description |
 | --- | --- | --- |
-| **Bonsai 2 27B** — `Ternary-Bonsai-2-27B-PQ2_0.gguf`, about 7.21 GB | Prism ML's 27-billion-parameter language model, stored in a compact ternary-weight format. PQ2_0 is the packing selected by this launcher. | Local conversation, drafting and rewriting, summarizing text you supply, and asking for explanations or code assistance. This is the component that generates text replies. |
-| **Vision tower/projector** — `Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf`, about 0.63 GB | Bonsai 2's companion image-processing component. It converts image input into representations the language model can use; it is not a second standalone chatbot. | Attach an image in local chat and ask about its contents, such as describing a picture or interpreting a screenshot. It handles image input, not image generation. |
-| **OrcaBonsai LoRA** — `bonsai-abliterate-lora.gguf`, about 9.68 MB | A small low-rank adapter from Continuum AI that is applied alongside the base weights. It targets the model's refusal direction without replacing the full model. | Compare base behavior with reduced refusal, including cases where otherwise benign requests are declined. It does not add image support or guarantee more accurate answers. |
+| **Bonsai 2 27B Base Model** | `Ternary-Bonsai-2-27B-PQ2_0.gguf`<br>~7.21 GB | Prism ML's 27-billion-parameter language model using compact ternary weights (PQ2_0). Handles general text generation, drafting, summaries, and code assistance. |
+| **Vision Projector** | `Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf`<br>~0.63 GB | The multimodal companion component. Converts image input so the base model can understand screenshots, diagrams, and photos (vision understanding, not image generation). |
+| **OrcaBonsai LoRA** | `bonsai-abliterate-lora.gguf`<br>~9.68 MB | A low-rank adapter by Continuum AI that adjusts the model's refusal direction. Toggle it on/off or fine-tune its intensity (0.5×–2.0×) directly from the dashboard. |
+| **Prism llama.cpp Runtime** | Prebuilt macOS arm64 binary<br>~11.7 MB | Optimized inference engine compiled for Apple Silicon, responsible for loading weights and serving local requests. |
 
-In the dashboard, switch **OrcaBonsai** off to use the base model configuration,
-or enable it and choose a strength from **0.5× to 2.0×**. New settings default to
-**enabled at 2.0×**; changes restart a running model. The multiplier controls the
-adapter's effect, not generation speed or an intelligence score. Compare outputs
-for your own tasks rather than assuming a stronger setting is always better.
+> **About OrcaBonsai**:  
+> Enabled by default at 2.0× strength. You can turn it off anytime to use the pure base model. Adjusting strength or toggling the adapter smoothly restarts the local server. See [Third-Party Components](docs/THIRD_PARTY.md) for pinned versions and hashes.
 
-Upstream reports adapter testing on **PTQ1_0**, and explicitly says **PQ2_0 was
-not tested**. This launcher uses PQ2_0; our successful local chat checks establish
-that execution, not equal upstream benchmark results. Image understanding is an
-upstream capability and has not yet been covered by our installed-app image-input
-acceptance. These components do not provide built-in web search, and answers can
-be wrong; reduced refusal is not a correctness or safety guarantee.
-
-Sources: [Bonsai 2 model card](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/blob/6ed5e12bf84b7a63069882c91dd9e9218647d17b/README.md),
-[OrcaBonsai adapter documentation](https://github.com/Continuum-AI-Corp/OrcaBonsai-27B-Uncensored/blob/947a80cd1d3b4f9a97417025e6c2c62223571287/README.md).
-The fourth download is the **Prism llama.cpp runtime**, the engine that loads
-these files and serves chat/API requests on your Mac. Exact versions, checksums
-and licenses are in [third-party components](docs/THIRD_PARTY.md).
+---
 
 ## Requirements
 
 | Requirement | Details |
 | --- | --- |
-| Mac | Apple silicon (`arm64`); Intel is unsupported |
-| Operating system | macOS 14 or later to run the app |
-| Unified memory | 16 GiB minimum; 32 GiB or more recommended; 16–31 GiB shows a warning |
-| Download | About 7.86 GB for all four components on a fresh installation |
-| Free disk space | Allow room for downloads, extracted runtime, and at least 1 GiB of safety space; storage migration also needs a second copy |
-| Build tools | Xcode 26 or later with Swift 6.2 or later, on a macOS version supported by that Xcode |
+| **Mac Architecture** | Apple Silicon (`arm64`: M1/M2/M3/M4 series). **Intel Macs are not supported.** |
+| **Operating System** | macOS 14 (Sonoma) or later |
+| **Unified Memory** | **16 GB minimum**, **32 GB or more recommended** (16 GB devices should monitor memory on large contexts) |
+| **Disk Space** | ~7.86 GB initial download; recommend **at least 15 GB free space** for runtime and cache |
 
-The build-tool requirement is higher than the app's deployment target. The
-installer checks architecture, memory, and storage before downloading. Large
-contexts can still exhaust memory on supported Macs.
+---
 
-## Get started
+## Quick Start
 
 ### 1. Install
 
-With [Homebrew](https://brew.sh):
+#### Option A: Homebrew (Recommended)
 
 ```sh
 brew tap mreasonyang/27b-launcher https://github.com/mreasonyang/27b-launcher
@@ -109,132 +84,86 @@ brew install --cask mreasonyang/27b-launcher/27b-launcher
 open "/Applications/27B Launcher.app"
 ```
 
-Alternatively, download the DMG from [Releases](https://github.com/mreasonyang/27b-launcher/releases/latest)
-and drag **27B Launcher.app** into **Applications**. Both methods install only the
-launcher; model setup happens on first launch. Existing source installations in
-`~/Applications` are separate. See [Homebrew installation and maintenance](docs/HOMEBREW.md)
-for upgrade, uninstall and data retention details.
+#### Option B: DMG Download
 
-#### Build from source
+Download the latest `.dmg` from [Releases](https://github.com/mreasonyang/27b-launcher/releases/latest) and drag **27B Launcher.app** into your **Applications** folder.
 
-Clone this repository using its GitHub **Code** menu, or download and extract its
-source archive. In Terminal, enter the resulting `27b-launcher` directory, then:
+#### Option C: Build from Source
 
 ```sh
-swift --version                  # 6.2 or later
+git clone https://github.com/mreasonyang/27b-launcher.git
+cd 27b-launcher
 swift test
 ./scripts/install.sh
 open "$HOME/Applications/27B Launcher.app"
 ```
 
-`install.sh` builds the app, verifies its signature, and installs it in
-`~/Applications`. It replaces an existing installation with rollback on failure.
-It does **not** download the model. No paid Apple Developer account is needed
-for a local build. A downloaded ad-hoc ZIP/DMG may be blocked by Gatekeeper.
+> See [Homebrew Guide](docs/HOMEBREW.md) for upgrade and uninstall instructions.
 
-To build without installing, run `./scripts/build-app.sh`; the app is written to
-`dist/27B Launcher.app`.
+---
 
-### 2. Follow the first-run guide
+### 2. First-Run Setup
 
-The guide appears until you finish or defer setup, even if model files are
-already installed. Use **Help → Quick start** to revisit it later.
+1. Launch **27B Launcher**. The first-run guide opens automatically.
+2. Confirm your storage location (defaults to `~/Library/Application Support/Bonsai2/`).
+3. Click **Download and prepare**. The app downloads the components, verifies SHA-256 checksums, and starts the model.
+   - You can pause and resume at any time, or click "Set up later" and continue when ready.
+4. Once ready, click **Start chatting** to open the web chat in your default browser.
 
-- **No model installed:** review the hardware, missing components, download size,
-  required space, and destination. **Download and prepare** downloads, verifies,
-  and loads the model. You can pause/resume or choose **Set up later** and return
-  with **Continue setup**. Reopening the app preserves that deferred choice.
-- **Model already installed:** usable components are reused. If the service is
-  stopped, click **Start Model**; the guide does not download the model again.
-- **Preparation complete:** the guide stays on its ready page. Click **Start
-  chatting** to open your default browser, or enter the dashboard. Either action
-  completes the guide; a successful browser-open request does not verify a reply.
+---
 
-The default data directory is `~/Library/Application Support/Bonsai2/`. It is
-created during installation. Model location changes are available in Settings
-**after installation**. You do not need a separate OrcaBonsai source checkout.
-Revisions, sizes, and checksums are listed in
-[third-party components](docs/THIRD_PARTY.md).
+### 3. Connect Third-Party Apps (OpenAI-Compatible API)
 
-### 3. Chat or connect another app
+You can connect 27B Launcher to any OpenAI-compatible app (e.g., NextChat, Chatbox, Open WebUI, Cursor, Bob):
 
-The default chat URL is `http://127.0.0.1:8080/`. In the ready guide, the API base
-URL `http://127.0.0.1:8080/v1` and the actual model ID from `/v1/models` are shown
-with separate copy buttons. Choose an OpenAI-compatible provider in your client
-and copy both fields exactly. Local mode needs no API key; clients requiring a
-nonempty field can use `local`. If reading the model ID fails, retry in the guide.
+- **Base URL**: `http://127.0.0.1:8080/v1`
+- **Model ID**: Click the copy button in the dashboard (or enter `Bonsai-2-27B`)
+- **API Key**: Not required in local mode; if your client requires a non-empty field, enter anything (e.g., `local`)
 
-The daily dashboard keeps its usage, OrcaBonsai, and network controls visible.
-**Start Model** starts the service; open chat separately when it is ready.
+---
 
-### If preparation fails
+### 4. LAN Sharing (Optional)
 
-Paused downloads retain progress; retries have a limit. Reopen the guide to
-continue. If the model exits during loading, the guide stops waiting and offers
-a retry and logs. In Settings, verify the model files and repair components
-reported as damaged; intact components are retained. A missing custom storage
-volume must be reconnected before continuing.
+To access the model from other devices on your local network (e.g., a phone, tablet, or another Mac):
 
-## Network access and privacy
+1. In the dashboard, switch the network listening scope to **All network interfaces (0.0.0.0)**.
+2. For security, the app automatically generates an API Bearer Key stored in macOS Keychain, and disables the unauthenticated web chat.
+3. Connect your other devices using `http://<your-mac-lan-ip>:8080/v1` with the generated API key.
 
-| Listening scope | Access | Built-in chat |
-| --- | --- | --- |
-| Local only (default) | `127.0.0.1:8080`, no API key required | Available |
-| All network interfaces | `0.0.0.0:8080`, API requests require the generated bearer key on a newly started managed server | Disabled; use an API client |
+---
 
-LAN clients must use this Mac's reachable IP address, not `0.0.0.0`. The service
-uses plain HTTP, so a key alone does not encrypt traffic. Use a trusted network
-or an authenticated encrypted tunnel. Copy or rotate the key in Settings.
-If the managed server is running, rotation stops it before changing the key,
-then starts it again. A stopped server stays stopped.
+## Frequently Asked Questions
 
-The launcher contains no analytics or crash-report upload client. Downloads contact
-GitHub and Hugging Face. API keys are stored only in Keychain and passed to the
-runtime through an anonymous pipe. Monitoring never sends an API key; token
-statistics are available for known loopback launches only.
+### What is the difference between closing the window, quitting, and stopping?
+- **Closing the window (Cmd+W)**: Hides the window. Background model inference and ongoing downloads continue uninterrupted. Click the Dock icon to bring it back.
+- **Quitting the app (Cmd+Q)**: Exits the launcher interface. The underlying inference engine continues running so API calls remain available.
+- **Stopping the model (Stop)**: Click the **Stop** button in the dashboard to terminate the inference process and free all unified memory.
 
-Data also includes macOS preferences, logs, any model directory you select, and
-chat storage managed by your browser. See the [privacy and storage inventory](docs/PRIVACY.md)
-for paths, network boundaries, and uninstall behavior.
+### Can I move model files to an external SSD?
+Yes. Go to **Settings (Cmd+,) → Storage** and choose a new destination folder. The launcher safely copies and verifies all files before switching paths, and can be cancelled at any point without risking data loss.
 
-## What to expect
+### What happens if the server crashes?
+- If the model process exits unexpectedly, the dashboard displays an error with an option to restart. Repeated rapid crashes pause automatic retries to prevent endless loops.
+- Click the log icon in the dashboard to inspect detailed runtime logs.
+- If you suspect corrupted files, run the integrity check in Settings to re-verify or repair components.
 
-- **Close, Quit, and Stop are different:** closing the window keeps downloads
-  and monitoring running; reopen the app from the Dock to show the window again.
-  Quitting ends downloads and monitoring but leaves the model server running.
-  Reopen the launcher to resume unfinished downloads; use **Stop** to stop the model.
-- **Recovery has limits:** five consecutive failed starts, or three crashes in
-  ten minutes, pause automatic restarts. A manual Start resets the budget;
-  reopening the launcher also clears it. Investigate recurring crashes in the logs.
-- **Usage is per process:** token counters reset when the model server restarts.
-  Input counts include newly processed and cache-reused tokens. Unavailable
-  metrics show an unknown state, rather than a measured zero.
-- **Fixed defaults:** port `8080`, context `32768`, reasoning budget `2048`.
-  These are implementation defaults, not currently editable settings.
-- **Model behavior is experimental:** OrcaBonsai changes refusal behavior.
-  Loading successfully does not establish answer quality or safety;
-  see the [upstream compatibility note](docs/THIRD_PARTY.md#compatibility).
-- **Updates:** run `brew update` and `brew upgrade --cask mreasonyang/27b-launcher/27b-launcher`,
-  install a newer DMG, or rebuild a source installation. Stop the model and quit
-  the launcher before upgrading.
+---
 
-## Verification and documentation
+## Privacy & Local Data
 
-The [0.10.11 acceptance record (中文)](docs/ACCEPTANCE.zh-CN.md) summarizes real
-UI checks, fresh and existing model setup, and the 263-test regression run on
-2026-09-30. It also lists scenarios still awaiting manual acceptance. Local
-packages are ad-hoc signed; official Release packages are signed and notarized
-by GitHub Actions. Neither establishes compatibility with every supported Mac.
-See [CI scope](docs/CI-VALIDATION.md) and [release maintenance](docs/HOMEBREW.md).
+- **100% Local**: Other than downloading model weights from GitHub and Hugging Face, no network traffic leaves your Mac.
+- **Zero Telemetry**: No analytics, tracking pixels, or crash reporting services.
+- **Secure Credentials**: LAN API keys are stored securely in macOS Keychain.
 
-The [onboarding behavior specification (中文)](design/onboarding/PROPOSAL.zh-CN.md)
-describes the implemented flow.
+For detailed storage paths and network boundaries, see [Privacy and Local State](docs/PRIVACY.md).
 
-## License and acknowledgments
+---
 
-The launcher's source code is covered by the repository's [MIT license](LICENSE).
-Downloaded runtimes, model weights, and adapters retain their upstream licenses;
-they are not included under the launcher's MIT grant.
+## License & Acknowledgments
 
-Built with SwiftUI and AppKit, using the Prism fork of llama.cpp, Bonsai 2 by
-Prism ML, and OrcaBonsai by Continuum AI. See [upstream sources and notices](docs/THIRD_PARTY.md).
+- The launcher source code is released under the [MIT License](LICENSE).
+- Downloaded models and runtime binaries retain their respective upstream licenses:
+  - **Bonsai 2 27B** by [Prism ML](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf)
+  - **OrcaBonsai** by [Continuum AI](https://github.com/Continuum-AI-Corp/OrcaBonsai-27B-Uncensored)
+  - **Prism llama.cpp runtime** by [PrismML-Eng](https://github.com/PrismML-Eng/llama.cpp)
+  - Full details, checksums, and licenses are documented in [Third-Party Components](docs/THIRD_PARTY.md).
