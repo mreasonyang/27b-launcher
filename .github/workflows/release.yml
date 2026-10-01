@@ -146,6 +146,7 @@ jobs:
           APP="dist/27B Launcher.app"
           xcrun stapler validate "$APP"
           spctl --assess --type execute -vv "$APP"
+          python3 scripts/check-packaged-launch.py "$APP"
           shasum -a 256 dist/*.dmg dist/*.zip
 
       - name: Generate Homebrew Cask from the final DMG

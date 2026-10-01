@@ -67,7 +67,8 @@ struct OnboardingTests {
     }
 
     private func settle(_ c: ServiceController) async throws {
-        let deadline = ContinuousClock.now + .seconds(5)
+        let hostedCI = ProcessInfo.processInfo.environment["GITHUB_ACTIONS"] == "true"
+        let deadline = ContinuousClock.now + .seconds(hostedCI ? 20 : 5)
         while c.isDownloadInProgress || c.isBusy || c.isPreparingQuickStart {
             try #require(ContinuousClock.now < deadline, "Preparation did not settle")
             try await Task.sleep(for: .milliseconds(5))

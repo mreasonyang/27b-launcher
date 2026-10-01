@@ -68,7 +68,11 @@ jobs:
           done
 
       - name: Package release artifacts (unsigned)
-        run: ./scripts/package-release.sh
+        # A live executable check catches SwiftPM accessors that point at CI paths.
+        # The runner is ephemeral; this does not touch an operator's installed app.
+        run: |
+          python3 scripts/check-packaged-launch.py "dist/27B Launcher.app"
+          ./scripts/package-release.sh
 
       - name: Verify the DMG layout
         run: |
