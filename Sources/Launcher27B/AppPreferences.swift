@@ -55,11 +55,25 @@ final class AppPreferences {
         catch { appearance = .system }
     }
 
+    // CLI SwiftPM's accessor searches beside the executable, which does not
+    // match a signed macOS app's Contents/Resources layout. Resolve the installed
+    // app explicitly; retain SwiftPM's accessor for command-line unit tests.
+    private static let resourceBundle: Bundle = {
+        if Bundle.main.bundleURL.pathExtension == "app" {
+            guard let url = Bundle.main.url(forResource: "Launcher27B_Launcher27B", withExtension: "bundle"),
+                  let bundle = Bundle(url: url) else {
+                preconditionFailure("Missing packaged localization resources")
+            }
+            return bundle
+        }
+        return Bundle.module
+    }()
+
     func localized(_ key: String) -> String {
         // SwiftPM may normalize localization directory names to lowercase.
-        guard let localization = Bundle.module.localizations.first(where: {
+        guard let localization = Self.resourceBundle.localizations.first(where: {
             $0.caseInsensitiveCompare(language.rawValue) == .orderedSame
-        }), let resourceURL = Bundle.module.resourceURL,
+        }), let resourceURL = Self.resourceBundle.resourceURL,
         let localizationBundle = Bundle(url: resourceURL
             .appendingPathComponent("\(localization).lproj")) else {
             preconditionFailure("Missing localization bundle: \(language.rawValue)")

@@ -57,7 +57,7 @@ jobs:
           test -f "$APP/Contents/Resources/PrivacyInfo.xcprivacy"
           test -f "$APP/Contents/Resources/AppIcon.icns"
           test -f "$APP/Contents/MacOS/Launcher27B"
-          test -d "$APP/Launcher27B_Launcher27B.bundle"
+          test -d "$APP/Contents/Resources/Launcher27B_Launcher27B.bundle"
           lipo -archs "$APP/Contents/MacOS/Launcher27B"
           plutil -extract CFBundleShortVersionString raw -o - "$APP/Contents/Info.plist"
           plutil -extract CFBundleVersion raw -o - "$APP/Contents/Info.plist"
