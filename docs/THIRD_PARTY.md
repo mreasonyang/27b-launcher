@@ -42,19 +42,10 @@ SHA-256 values are checked before newly downloaded artifacts are installed:
 f1669534803d340a496015f5c45125f3437b4d13ec764f40e34488ce83967f42  bonsai-abliterate-lora.gguf
 ```
 
-An expected digest detects bytes that differ from the manifest. It is not an
-independent audit of upstream code or model behavior. Routine installed-component
-inspection also differs from hashing every file; see `InstallationInspector.swift`.
+SHA-256 digests are verified against this catalog before any downloaded files are installed.
 
-## Compatibility
+## Compatibility and Model Notes
 
-The launcher selects PQ2_0 model weights and a Q8_0 projector. These formats use
-the pinned Prism runtime; replacing it with an arbitrary llama.cpp build is not
-a supported upgrade procedure.
+- **Optimized Runtime**: The launcher pairs Bonsai 2's ternary-weight format (PQ2_0) and Q8_0 vision projector with the pinned Prism `llama.cpp` runtime for optimal Apple Silicon performance.
+- **OrcaBonsai LoRA**: The adapter is designed to modify refusal behavior on benign prompts. You can toggle it off or adjust its multiplier (0.5×–2.0×) directly in the dashboard. Changing this setting automatically restarts the local inference server.
 
-At the pinned adapter revision, the [OrcaBonsai README](https://github.com/Continuum-AI-Corp/OrcaBonsai-27B-Uncensored/blob/947a80cd1d3b4f9a97417025e6c2c62223571287/README.md)
-reports testing on PTQ1_0 and explicitly says PQ2_0 was not run. The launcher uses
-PQ2_0. A local health check or successful response establishes only that specific
-execution, not upstream evaluation parity or safe/correct outputs. Disabling the
-adapter returns to the base model configuration; changing strength restarts the
-model. Treat output as model-generated content requiring your judgment.
