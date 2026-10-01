@@ -55,3 +55,34 @@ Homebrew 完成 0.10.12 → 0.10.13 升级，旧版本应用被替换；实际�
 登录/重启系统、局域网暴露或密钥轮换，也未在其他 Mac 上测试。
 关闭窗口与日志窗口没有取得足够的独立 UI 证据，未计为通过。
 这些路径不能用单元测试通过替代实际验收。
+
+## 补充：全新应用安装与 DMG 安装
+
+同日补测公开 0.10.13 的安装过程及核心功能；保留现有模型与设置，
+所以“全新”指应用与 Homebrew 收据不存在，不代表空用户账户或首次模型下载。
+
+### Homebrew 全新安装
+
+1. 停止模型、退出应用，执行正常 `brew uninstall --cask`。
+2. 确认 `/Applications/27B Launcher.app` 与 Caskroom 收据目录均不存在，模型数据仍存在。
+3. 执行 `brew install --cask mreasonyang/27b-launcher/27b-launcher`，成功安装 0.10.13。
+4. 实际打开应用、加载模型、在内置 Browser 聊天，收到 `Fresh Homebrew install passed.`。
+5. 重启后模型 PID 从 44484 变为 44859，健康检查恢复正常；停止后进程退出、界面显示已停止。
+6. 签名、公证票据及 Gatekeeper 检查通过。
+
+结论：应用全新安装与核心链路 PASS。Homebrew 输出的其他 Tap 弃用/信任提示不影响本 Cask 安装，未修改其他 Tap。
+
+### DMG 手动安装
+
+1. 从公开 GitHub Release 重新下载 DMG，SHA-256 与 Cask 一致；镜像校验及公证票据通过。
+2. 正常卸载 Homebrew 应用，确认 Applications 目标为空，挂载 DMG。
+3. Finder 拖拽未产生目标文件；改用 Finder 选中应用、复制、打开镜像内的 Applications 别名、粘贴，实际复制成功。
+4. 确认目标版本 0.10.13，签名、公证和 Gatekeeper 均通过；卸载镜像后从 `/Applications` 启动应用。
+
+5. 模型加载正常，内置 Browser 收到 `DMG install passed.` 完整回复。
+6. 重启模型 PID 从 45328 变为 45534，健康检查恢复正常；停止后模型进程退出，界面显示已停止。
+7. 退出应用，将 DMG 测试副本移入本地 QA 目录，再通过 Homebrew 正常安装恢复日常使用。
+
+结论：DMG Finder 复制安装及核心功能 PASS。拖拽动作未计为通过；自动化的两次拖拽没有产生文件，未发现应用复制安装本身的失败。
+安装时未关闭 Gatekeeper 或移除 quarantine。由于当前用户此前已授权过同版本应用，
+不宣称全新用户的首次 Gatekeeper 弹窗已重新验证。

@@ -75,6 +75,12 @@ adds an actual packaged-executable startup check to CI and release verification.
   LAN-sharing confirmation cancellation passed on this Apple Silicon Mac.
 - All 263 local tests and hosted CI passed. See the detailed scope and remaining
   untested paths in [Homebrew acceptance](HOMEBREW-ACCEPTANCE-0.10.13.zh-CN.md).
+- Additional same-day testing removed the app and Homebrew receipt, performed a
+  fresh cask install, and separately copied the public DMG app using Finder into
+  an empty `/Applications` destination. Both installed apps passed launch, model
+  load, real chat, restart and stop. Existing model data was retained; this is
+  not a fresh-user model-download test. Finder copy installation passed; the
+  automated drag gesture did not complete and is not counted as verified.
 
 ## Historical packaging verification: 0.10.12 (2026-10-01)
 
