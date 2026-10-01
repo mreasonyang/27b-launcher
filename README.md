@@ -50,6 +50,38 @@ Ask Bonsai 2 to draft an email, then refine the answer with a follow-up.
 This is a focused launcher for one model family, not a general model catalog.
 It is an independent project, unaffiliated with Prism ML or Continuum AI.
 
+## What are the model files and LoRA?
+
+The two downloaded model files work together: **Bonsai 2 generates answers;
+the vision component lets it understand images.** OrcaBonsai changes the base
+model's refusal behavior. The launcher downloads and connects these components
+for you; no separate model checkout or manual configuration is needed.
+
+| Component | What it is | What you can use it for |
+| --- | --- | --- |
+| **Bonsai 2 27B** — `Ternary-Bonsai-2-27B-PQ2_0.gguf`, about 7.21 GB | Prism ML's 27-billion-parameter language model, stored in a compact ternary-weight format. PQ2_0 is the packing selected by this launcher. | Local conversation, drafting and rewriting, summarizing text you supply, and asking for explanations or code assistance. This is the component that generates text replies. |
+| **Vision tower/projector** — `Ternary-Bonsai-2-27B-mmproj-Q8_0.gguf`, about 0.63 GB | Bonsai 2's companion image-processing component. It converts image input into representations the language model can use; it is not a second standalone chatbot. | Attach an image in local chat and ask about its contents, such as describing a picture or interpreting a screenshot. It handles image input, not image generation. |
+| **OrcaBonsai LoRA** — `bonsai-abliterate-lora.gguf`, about 9.68 MB | A small low-rank adapter from Continuum AI that is applied alongside the base weights. It targets the model's refusal direction without replacing the full model. | Compare base behavior with reduced refusal, including cases where otherwise benign requests are declined. It does not add image support or guarantee more accurate answers. |
+
+In the dashboard, switch **OrcaBonsai** off to use the base model configuration,
+or enable it and choose a strength from **0.5× to 2.0×**. New settings default to
+**enabled at 2.0×**; changes restart a running model. The multiplier controls the
+adapter's effect, not generation speed or an intelligence score. Compare outputs
+for your own tasks rather than assuming a stronger setting is always better.
+
+Upstream reports adapter testing on **PTQ1_0**, and explicitly says **PQ2_0 was
+not tested**. This launcher uses PQ2_0; our successful local chat checks establish
+that execution, not equal upstream benchmark results. Image understanding is an
+upstream capability and has not yet been covered by our installed-app image-input
+acceptance. These components do not provide built-in web search, and answers can
+be wrong; reduced refusal is not a correctness or safety guarantee.
+
+Sources: [Bonsai 2 model card](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf/blob/6ed5e12bf84b7a63069882c91dd9e9218647d17b/README.md),
+[OrcaBonsai adapter documentation](https://github.com/Continuum-AI-Corp/OrcaBonsai-27B-Uncensored/blob/947a80cd1d3b4f9a97417025e6c2c62223571287/README.md).
+The fourth download is the **Prism llama.cpp runtime**, the engine that loads
+these files and serves chat/API requests on your Mac. Exact versions, checksums
+and licenses are in [third-party components](docs/THIRD_PARTY.md).
+
 ## Requirements
 
 | Requirement | Details |
